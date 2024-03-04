@@ -7530,6 +7530,39 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The Cox-Ross-Rubinstein (CRR) binomial tree model is a popular method for pricing European and American options. This model approximates the dynamics of a stock following a geometric Brownian motion (GBM) by discretizing the stock price movements over time into an up or down movement at each step of the tree. The parameters $p, u, d$ are crucial for constructing the binomial tree. They represent the probability of an up move, the up move factor, and the down move factor, respectively. The formulas for these parameters are derived from the characteristics of the geometric Brownian motion, which is described by a drift rate $r$ (risk-free interest rate) and a volatility $\sigma$. The time to maturity of the option is divided into $n$ equal intervals of length $\Delta t$.</p>
+<p>The formulas for the parameters are as follows:</p>
+<ul>
+<li><p><strong>Up move factor ($u$):</strong>
+$$
+u = e^{\sigma \sqrt{\Delta t}}
+$$
+This factor represents the multiplicative increase in the stock price if it moves up.</p>
+</li>
+<li><p><strong>Down move factor ($d$):</strong>
+$$
+d = e^{-\sigma \sqrt{\Delta t}}
+$$
+This factor represents the multiplicative decrease in the stock price if it moves down. It's worth noting that $d = \frac{1}{u}$, ensuring that the tree is recombining.</p>
+</li>
+<li><p><strong>Risk-neutral probability ($p$):</strong>
+$$
+p = \frac{e^{r \Delta t} - d}{u - d}
+$$
+This probability is used to calculate the expected value of the option at each node in a risk-neutral world, where all investors are indifferent to risk. It reflects the probability of the stock price moving up in the next time step.</p>
+</li>
+</ul>
+<p>These parameters ensure that the binomial model converges to the continuous-time geometric Brownian motion model as the number of steps $n$ increases and $\Delta t$ becomes very small.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>b. Write code that takes $S_0, \sigma, r, K, T$ and $N$ as inputs and uses an $N$-step CCR binomial tree to compute the prices of <strong>call</strong> and <strong>put options</strong> in the <strong>Black-Scholes model</strong>.</p>
 </div>
 </div>
@@ -7544,6 +7577,28 @@ a.anchor-link {
 <p>c. Analyze the <strong>convergence</strong> of binomial tree option prices to Black-Scholes option prices as the number of time steps gets larger. Specifically, for both call and put options, plot the Black-Scholes price $P^{BS}$ and the $N$-step binomial tree price $P_N^{\text{Tree}}$ as a function of $N$. Also, plot the absolute relative pricing error $\frac{|P_N^{\text{Tree}} - P^{BS}|}{P^{BS}}$ as a function of $N$.</p>
 <p>Comment on your findings. Does the error decrease smoothly to zero as $N$ grows? How large does $N$ have to be (i.e., how small does the step size $\Delta t$ for satisfactory convergence)?</p>
 <p>Use parameters $S_0 = 100, K = 90, T = 0.5, \sigma = 0.2,$ and $r = 0.04$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Problem-%232">Problem #2<a class="anchor-link" href="#Problem-%232">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>a. <strong>Prove</strong> that the log-return of the stock price in the Black-Scholes model satisfies</p>
 </div>
 </div>
 </div>
