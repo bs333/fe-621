@@ -7820,6 +7820,23 @@ BSM Put Price: 1.37
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Error-Decrease-Trend">Error Decrease Trend<a class="anchor-link" href="#Error-Decrease-Trend">¶</a></h5><p>The analysis of the convergence of binomial tree option prices to Black-Scholes prices, as the number of steps $N$ increases, reveals several key insights:</p>
+<ul>
+<li><p><strong>Relatively Smooth Decrease in Error:</strong> The absolute relative pricing error for both call and put options decreases as $N$ grows, indicating a convergence towards the Black-Scholes model prices. The decrease in error is <strong>relatively smooth</strong>, especially as seen in the logarithmic scale plots. This smooth decrease supports the hypothesis that as the time steps become finer (i.e., as $N$ increases), the binomial tree model more accurately approximates the continuous-time Black-Scholes model.</p>
+</li>
+<li><p><strong>Satisfactory Convergence Threshold:</strong> While the exact $N$ required for satisfactory convergence may depend on the specific tolerance levels for pricing error, the plots suggest that a relatively large number of steps (e.g., $N \geq 50$) significantly reduces the pricing error to a level that might be considered satisfactory for many practical applications. However, it's important to note that the improvements in accuracy diminish as $N$ becomes very large, indicating a point of diminishing returns where increasing $N$ further provides minimal additional accuracy relative to the computational cost.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Problem-%232">Problem #2<a class="anchor-link" href="#Problem-%232">¶</a></h4>
 </div>
 </div>
@@ -7837,31 +7854,13 @@ BSM Put Price: 1.37
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
