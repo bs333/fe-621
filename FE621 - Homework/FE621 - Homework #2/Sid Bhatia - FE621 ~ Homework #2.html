@@ -7861,6 +7861,20 @@ BSM Put Price: 1.37
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Proof-of-Log-Return-in-the-Black-Scholes-Model">Proof of Log-Return in the Black-Scholes Model<a class="anchor-link" href="#Proof-of-Log-Return-in-the-Black-Scholes-Model">¶</a></h5><p>The Black-Scholes model assumes that the stock price $S_t$ follows a geometric Brownian motion (GBM) with constant drift $\mu$ and volatility $\sigma$. The stochastic differential equation (SDE) describing the dynamics of $S_t$ is given by:</p>
+<p>$$dS_t = \mu S_t dt + \sigma S_t dW_t,$$</p>
+<p>where $W_t$ is a Wiener process (or Brownian motion).</p>
+<h5 id="Solving-the-SDE">Solving the SDE<a class="anchor-link" href="#Solving-the-SDE">¶</a></h5><p>To solve this SDE and find an expression for $S_T/S_0$, we apply Itô's lemma to $\log(S_t)$, noting that $\log(S_t)$ is a function $f(S_t) = \log(S_t)$ of the stochastic process $S_t$.</p>
+<p>Itô's lemma gives us:</p>
+<p>$$d(\log(S_t)) = \left( \frac{\mu}{S_t} - \frac{1}{2} \frac{\sigma^2}{S_t^2} S_t^2 \right)dt + \frac{\sigma}{S_t} S_t dW_t,$$</p>
+<p>which simplifies to:</p>
+<p>$$d(\log(S_t)) = \left( \mu - \frac{1}{2} \sigma^2 \right)dt + \sigma dW_t.$$</p>
+<p>Integrating both sides from $0$ to $T$, we obtain:</p>
+<p>$$\log(\frac{S_T}{S_0}) = \int_0^T \left( \mu - \frac{1}{2} \sigma^2 \right)dt + \int_0^T \sigma dW_t.$$</p>
+<p>Since $\mu = r$ in the risk-neutral world (which is a key assumption of the Black-Scholes model for pricing derivatives), this equation becomes:</p>
+<p>$$\log(\frac{S_T}{S_0}) = (r - \frac{\sigma^2}{2})T + \sigma W_T,$$</p>
+<p>where $W_T \sim \mathcal{N}(0, T)$ due to the properties of Brownian motion, where the increment $W_T$ is normally distributed with mean $0$ and variance $T$.</p>
+<h5 id="Distribution-of-Log-Return">Distribution of Log-Return<a class="anchor-link" href="#Distribution-of-Log-Return">¶</a></h5><p>The log-return $\log(\frac{S_T}{S_0})$ is therefore normally distributed with mean $(r - \frac{\sigma^2}{2})T$ and variance $\sigma^2 T$. The probability density function (PDF) of this distribution can be plotted using the following Python code:</p>
 </div>
 </div>
 </div>
