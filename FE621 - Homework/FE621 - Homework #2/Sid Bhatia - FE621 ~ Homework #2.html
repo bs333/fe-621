@@ -8708,6 +8708,113 @@ $$</p>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>e.  Barrier options are <em>one-touch options</em> that are knocked in/out as soon as the barrier is hit. When the stock price is close to the barrier, the prices and deltas of such options are very sensitive to small changes in the stock price. <em>Parisian options</em>, on the other hand, require the stock price to remain beyond the barrier for $d &gt; 1$ periods for the option to be knocked in/out. (Extra Credit)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>i. Explain why the prices and deltas of Parisian options are less sensitive than those of one-touch options when the stock price is near the barrier.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Sensitivity-of-Parisian-Options-vs.-One-Touch-Barrier-Options">Sensitivity of Parisian Options vs. One-Touch Barrier Options<a class="anchor-link" href="#Sensitivity-of-Parisian-Options-vs.-One-Touch-Barrier-Options">¶</a></h5><p>Parisian options and one-touch barrier options represent two different mechanisms for activating or deactivating options based on the behavior of the underlying asset's price relative to a predefined barrier. One-touch barrier options are activated or deactivated (knocked in or out) immediately once the asset's price crosses the barrier level. Parisian options, however, add an additional condition that the asset's price must remain beyond the barrier for more than $d &gt; 1$ periods for the option to be knocked in or out.</p>
+<h5 id="Reduced-Sensitivity-of-Parisian-Options"><em>Reduced Sensitivity of Parisian Options</em><a class="anchor-link" href="#Reduced-Sensitivity-of-Parisian-Options">¶</a></h5><p>The key difference in sensitivity between Parisian options and one-touch barrier options, particularly when the stock price is near the barrier, stems from the time condition applied to Parisian options. This condition has several implications:</p>
+<ol>
+<li><p><strong>Smoothing Effect</strong>: The requirement for the stock price to stay beyond the barrier for a specified duration introduces a smoothing effect. For Parisian options, short-term fluctuations of the stock price around the barrier do not trigger immediate activation or deactivation. This temporal requirement reduces the option's price and delta sensitivity to small, immediate changes in the stock price.</p>
+</li>
+<li><p><strong>Predictability and Stability</strong>: Parisian options offer more predictability and stability in pricing, especially when the stock price hovers near the barrier. The price and delta of a Parisian option will not exhibit abrupt changes due to temporary price spikes or dips, making these options less reactive to market volatility in the short term.</p>
+</li>
+<li><p><strong>Gradual Adjustment</strong>: The valuation of Parisian options allows for a more gradual adjustment as the stock price approaches and crosses the barrier. Since the option's fate is not decided by a single touch, the market participants have additional time to react and adjust, leading to less dramatic changes in the option's sensitivities.</p>
+</li>
+</ol>
+<h5 id="Comparison-with-One-Touch-Barrier-Options"><em>Comparison with One-Touch Barrier Options</em><a class="anchor-link" href="#Comparison-with-One-Touch-Barrier-Options">¶</a></h5><p>In contrast, one-touch barrier options can exhibit significant sensitivity and volatility in their prices and deltas, especially as the stock price nears the barrier. A minor fluctuation in the stock price can lead to substantial changes in the valuation and risk profiles of these options, given their immediate response to the price touching the barrier.</p>
+<h5 id="Conclusion"><em>Conclusion</em><a class="anchor-link" href="#Conclusion">¶</a></h5><p>In summary, Parisian options are inherently less sensitive to small changes in the stock price near the barrier due to their conditional activation or deactivation criteria. This characteristic makes Parisian options more suitable for investors seeking options with smoother sensitivity profiles and less immediate reaction to market volatility around the barrier level.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>ii. Explain how the state variable approach discussed in class can used to price a Parisian down-and-in call options in a binomial tree. Provide pseudocode for your approach.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Pricing-Parisian-Down-and-In-Call-Options-with-State-Variables">Pricing Parisian Down-and-In Call Options with State Variables<a class="anchor-link" href="#Pricing-Parisian-Down-and-In-Call-Options-with-State-Variables">¶</a></h5><p>Parisian options introduce a complexity in pricing due to the condition that the stock price must stay beyond a barrier for a specific duration before the option is activated or deactivated. To handle this in a binomial tree framework, we can employ a state variable approach. This method involves augmenting each node in the binomial tree with additional information to track the time the stock price has spent beyond the barrier.</p>
+<h5 id="State-Variable-Approach"><em>State Variable Approach</em><a class="anchor-link" href="#State-Variable-Approach">¶</a></h5><p>The state variable approach for pricing Parisian down-and-in call options in a binomial tree involves tracking two main pieces of information at each node:</p>
+<ol>
+<li><strong>The stock price</strong>: As in traditional binomial tree models.</li>
+<li><strong>A counter for periods spent beyond the barrier</strong>: This is the additional state variable. For a down-and-in option, this counter tracks the number of consecutive periods the stock price has been below the barrier.</li>
+</ol>
+<h5 id="Pseudocode"><em>Pseudocode</em><a class="anchor-link" href="#Pseudocode">¶</a></h5><p>The pseudocode for implementing this approach is as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">price_parisian_down_in_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="c1"># S0: Initial stock price</span>
+    <span class="c1"># K: Strike price</span>
+    <span class="c1"># H: Barrier level</span>
+    <span class="c1"># T: Time to maturity</span>
+    <span class="c1"># sigma: Volatility</span>
+    <span class="c1"># r: Risk-free interest rate</span>
+    <span class="c1"># N: Number of steps in the binomial tree</span>
+    <span class="c1"># d: Required periods below H for activation</span>
+    
+    <span class="n">Initialize</span> <span class="n">binomial</span> <span class="n">tree</span> <span class="k">for</span> <span class="n">stock</span> <span class="n">prices</span>
+    <span class="n">Initialize</span> <span class="n">binomial</span> <span class="n">tree</span> <span class="k">for</span> <span class="n">barrier</span> <span class="n">counter</span> <span class="p">(</span><span class="nb">all</span> <span class="n">zeros</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">each</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">binomial</span> <span class="n">tree</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">node</span> <span class="n">at</span> <span class="n">this</span> <span class="n">step</span><span class="p">:</span>
+            <span class="n">Update</span> <span class="n">stock</span> <span class="n">price</span> <span class="n">using</span> <span class="n">standard</span> <span class="n">binomial</span> <span class="n">model</span> <span class="n">equations</span>
+            <span class="k">if</span> <span class="n">stock</span> <span class="n">price</span> <span class="n">at</span> <span class="n">node</span> <span class="o">&lt;</span> <span class="n">H</span><span class="p">:</span>
+                <span class="n">Increment</span> <span class="n">barrier</span> <span class="n">counter</span> <span class="k">for</span> <span class="n">this</span> <span class="n">node</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Reset</span> <span class="n">barrier</span> <span class="n">counter</span> <span class="k">for</span> <span class="n">this</span> <span class="n">node</span> <span class="n">to</span> <span class="n">zero</span>
+            
+            <span class="k">if</span> <span class="n">barrier</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">d</span><span class="p">:</span>
+                <span class="n">Mark</span> <span class="n">this</span> <span class="n">node</span> <span class="k">as</span> <span class="n">activated</span> <span class="k">for</span> <span class="n">the</span> <span class="n">option</span>
+            
+    <span class="n">Initialize</span> <span class="n">option</span> <span class="n">values</span> <span class="n">at</span> <span class="n">maturity</span> <span class="p">(</span><span class="n">payoffs</span> <span class="k">for</span> <span class="n">activated</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">zero</span> <span class="k">for</span> <span class="n">others</span><span class="p">)</span>
+    
+    <span class="n">Perform</span> <span class="n">backward</span> <span class="n">induction</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">step</span> <span class="kn">from</span> <span class="nn">maturity</span> <span class="n">to</span> <span class="n">the</span> <span class="n">start</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="n">node</span> <span class="n">at</span> <span class="n">this</span> <span class="n">step</span><span class="p">:</span>
+                <span class="n">Calculate</span> <span class="n">option</span> <span class="n">value</span> <span class="k">as</span> <span class="n">the</span> <span class="nb">max</span> <span class="n">of</span> <span class="n">exercising</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">expected</span> <span class="n">value</span> <span class="n">of</span> <span class="n">holding</span>
+                <span class="n">Expected</span> <span class="n">value</span> <span class="n">of</span> <span class="n">holding</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">discounted</span> <span class="n">average</span> <span class="n">of</span> <span class="n">the</span> <span class="n">option</span> <span class="n">values</span> <span class="n">at</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">step</span>
+                <span class="n">Use</span> <span class="n">only</span> <span class="n">activated</span> <span class="n">nodes</span> <span class="k">for</span> <span class="n">calculating</span> <span class="n">option</span> <span class="n">values</span>
+    
+    <span class="k">return</span> <span class="n">option</span> <span class="n">value</span> <span class="n">at</span> <span class="n">the</span> <span class="n">root</span> <span class="n">of</span> <span class="n">the</span> <span class="n">binomial</span> <span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
