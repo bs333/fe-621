@@ -7866,7 +7866,7 @@ BSM Put Price: 1.37
 <p>where $W_t$ is a Wiener process (or Brownian motion).</p>
 <h5 id="Solving-the-SDE"><em>Solving the SDE</em><a class="anchor-link" href="#Solving-the-SDE">¶</a></h5><p>To solve this SDE and find an expression for $S_T/S_0$, we apply Itô's lemma to $\log(S_t)$, noting that $\log(S_t)$ is a function $f(S_t) = \log(S_t)$ of the stochastic process $S_t$.</p>
 <p>Itô's lemma gives us:</p>
-<p>$$d(\log(S_t)) = \left( \frac{\mu}{S_t} - \frac{1}{2} \frac{\sigma^2}{S_t^2} S_t^2 \right)dt + \frac{\sigma}{S_t} S_t dW_t,$$</p>
+<p>$$d(\log(S_t)) = \left( \frac{\mu}{S_t}S_t - \frac{1}{2} \frac{\sigma^2}{S_t^2} S_t^2 \right)dt + \frac{\sigma}{S_t} S_t dW_t,$$</p>
 <p>which simplifies to:</p>
 <p>$$d(\log(S_t)) = \left( \mu - \frac{1}{2} \sigma^2 \right)dt + \sigma dW_t.$$</p>
 <p>Integrating both sides from $0$ to $T$, we obtain:</p>
