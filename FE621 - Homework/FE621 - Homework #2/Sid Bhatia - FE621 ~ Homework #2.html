@@ -8380,7 +8380,7 @@ this? To examine this, plot the CDF of $S_N$ $(N = 6, 26, 126)$ and $S_T$ in the
     <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">d</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">option_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">K</span> <span class="o">-</span> <span class="n">stock_prices</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     
-    <span class="c1"># Backward induction through the tree.</span>
+    <span class="c1"># Backward induction through the tree</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="n">d</span> <span class="o">/</span> <span class="n">u</span>
         <span class="n">hold_values</span> <span class="o">=</span> <span class="n">discount</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">option_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">option_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -8431,6 +8431,152 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Problem-%234">Problem #4<a class="anchor-link" href="#Problem-%234">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>a. Write the payoff function of a down-and-in barrier call option with barrier $H$ and the strike price $K$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Payoff-Function-of-a-Down-and-In-Barrier-Call-Option">Payoff Function of a Down-and-In Barrier Call Option<a class="anchor-link" href="#Payoff-Function-of-a-Down-and-In-Barrier-Call-Option">¶</a></h5><p>A <strong>down-and-in barrier call option</strong> is a type of path-dependent option whose existence (activation) depends on the underlying asset's price hitting a certain barrier level $H$. This option becomes active or "knocks in" only if the asset's price falls below the barrier (H) at any time during the option's life. If the barrier is not breached, the option expires worthless, regardless of the asset's final price relative to the strike price (K).</p>
+<p>The payoff function $P(S_T)$ of a down-and-in barrier call option at maturity $T$ can be written as:</p>
+<p>$$
+P(S_T) = 
+\begin{cases} 
+(S_T - K)^+ &amp; \text{if } \min_{0 \leq t \leq T} S_t \leq H \\
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>where:</p>
+<ul>
+<li>$S_T$ is the asset price at maturity.</li>
+<li>$K$ is the strike price of the call option.</li>
+<li>$H$ is the barrier level.</li>
+<li>$t$ represents any point in time between $0$ and $T$, the life of the option.</li>
+<li>$(S_T - K)^+$ denotes the standard call option payoff and is defined as $\max(S_T - K, 0)$.</li>
+</ul>
+<p>Intuitively, the payoff function states that if the asset price never drops to or below the barrier level $H$ throughout the option's life, the option will not be exercised and the payoff will be zero. However, if the asset price does hit or fall below $H$, the option "<strong>knocks in</strong>", and its payoff will be the same as a standard call option's payoff, which is the excess of the asset's price over the strike price $K$ if it's positive, and zero otherwise.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">def</span> <span class="nf">down_in_call_payoff</span><span class="p">(</span><span class="n">S_T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">K</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">S</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate the payoff of a down-and-in barrier call option.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - S_T : float</span>
+<span class="sd">        The stock price at maturity.</span>
+<span class="sd">    - K : float</span>
+<span class="sd">        The strike price of the option.</span>
+<span class="sd">    - H : float</span>
+<span class="sd">        The barrier level.</span>
+<span class="sd">    - S : List[float]</span>
+<span class="sd">        A list or array of stock prices over the life of the option.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - The payoff of the option: float</span>
+<span class="sd">        The payoff is max(S_T - K, 0) if the barrier has been breached;</span>
+<span class="sd">        otherwise, it is 0.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Check if the barrier has been breached during the option's life.</span>
+    <span class="n">barrier_breached</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">price</span> <span class="o">&lt;=</span> <span class="n">H</span> <span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">S</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate the payoff if the barrier has been breached.</span>
+    <span class="k">if</span> <span class="n">barrier_breached</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">S_T</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+<span class="c1"># TEST CASE:</span>
+<span class="c1"># Barrier is 95, strike is 100, spot at maturity is 102,</span>
+    
+<span class="n">stock_prices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">110</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">104</span><span class="p">]</span>  <span class="c1"># E.g., stock prices</span>
+
+<span class="n">payoff</span> <span class="o">=</span> <span class="n">down_in_call_payoff</span><span class="p">(</span><span class="n">S_T</span> <span class="o">=</span> <span class="mi">102</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="mi">95</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The payoff of the down-and-in barrier call option is: </span><span class="si">{</span><span class="n">payoff</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>The payoff of the down-and-in barrier call option is: 2
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>b. Assume that $H &lt; S_0 &lt; K$. What needs to happen for the payoff of the barrier option to be positive?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>c. Write the dynamic programming equation for the valur of the barrier option. Explain in words the meaning of each term in your equation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>d. When pricing barrier options using binomial trees, do you expect the convergence to be faster or slower than when pricing regular (non-barrier) options? That is, do you think a smaller or larger number of steps is required to attain a comparable level of accuracy? Explain your reasoning.</p>
 </div>
 </div>
 </div>
