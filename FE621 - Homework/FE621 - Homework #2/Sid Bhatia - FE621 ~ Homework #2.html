@@ -8304,6 +8304,51 @@ this? To examine this, plot the CDF of $S_N$ $(N = 6, 26, 126)$ and $S_T$ in the
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>c. How does the exercise boundary depend on the volatility $\sigma$? Explain intuitively in financial terms.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Dependence-of-Exercise-Boundary-on-Volatility">Dependence of Exercise Boundary on Volatility<a class="anchor-link" href="#Dependence-of-Exercise-Boundary-on-Volatility">¶</a></h5><p>The exercise boundary of an American put option is significantly influenced by the volatility, $\sigma$, of the underlying asset. Volatility is a measure of how much the asset's price fluctuates over time. Intuitively, in financial terms, the relationship between the exercise boundary and volatility can be understood as follows:</p>
+<h5 id="Higher-Volatility-($%5Csigma$)"><em>Higher Volatility ($\sigma$)</em><a class="anchor-link" href="#Higher-Volatility-($%5Csigma$)">¶</a></h5><ul>
+<li><strong>Increased Uncertainty</strong>: Higher volatility implies greater uncertainty about the future price of the underlying asset. With more uncertainty, there is a higher chance that the stock price could decline significantly, which increases the potential payoff from holding the option rather than exercising it early.</li>
+<li><strong>Option Value</strong>: The value of the optionality—the choice to exercise the put option—increases with volatility. This is because the option provides insurance against downside risk, and like any insurance, it becomes more valuable as the risk it protects against becomes more pronounced.</li>
+<li><strong>Exercise Boundary Lower</strong>: As a result, the exercise boundary—the stock price at which it's optimal to exercise the option early—tends to be lower when volatility is higher. Investors are willing to wait longer (for a potentially lower stock price) before exercising the option, as the increased volatility could lead to more favorable exercise conditions in the future.</li>
+</ul>
+<h5 id="Lower-Volatility-($sigma$)"><em>Lower Volatility ($sigma$)</em><a class="anchor-link" href="#Lower-Volatility-($sigma$)">¶</a></h5><ul>
+<li><strong>Reduced Uncertainty</strong>: Lower volatility indicates less uncertainty and smaller price fluctuations. The likelihood of the stock price falling dramatically is reduced, which diminishes the potential benefit of waiting to exercise.</li>
+<li><strong>Option Value</strong>: The value of holding the option is less when volatility is low because the protective value of the option against sharp declines is less needed.</li>
+<li><strong>Exercise Boundary Higher</strong>: Thus, the exercise boundary is higher in a low volatility environment. Investors are more inclined to exercise the option at a relatively higher stock price because there is less chance of missing out on more advantageous exercise prices later.</li>
+</ul>
+<h5 id="Conclusion"><em>Conclusion</em><a class="anchor-link" href="#Conclusion">¶</a></h5><p>In essence, the exercise boundary's dependence on volatility reflects the trade-off between immediate exercise and the value of waiting when considering the likelihood of favorable movements in the underlying asset's price. High volatility increases the value of waiting due to the greater chance of beneficial price movements, while low volatility favors earlier exercise to capture the intrinsic value.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>d. A <strong>callable option</strong> is such that the issuer has the right to buy it back at any time at a predetermined <em>call price</em>. Upon issuer call, the option holder can choose to either exercise the option or receive the call price.</p>
+<p>Write the dynamic programming equation for a callable American put option with strike price $K$ and call price $H$. Explain in words the meaning of each term in your equation. (Extra Credit)</p>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
