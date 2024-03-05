@@ -8137,6 +8137,30 @@ this? To examine this, plot the CDF of $S_N$ $(N = 6, 26, 126)$ and $S_T$ in the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Analysis-of-Convergence:-$S_N$-to-$S_T$"><em>Analysis of Convergence: $S_N$ to $S_T$</em><a class="anchor-link" href="#Analysis-of-Convergence:-$S_N$-to-$S_T$">¶</a></h5><p>According to the theory, the stock price at the end of a binomial tree model ($S_N$) converges in distribution to the stock price following a geometric Brownian motion ($S_T$) as the number of steps in the binomial model ($N$) approaches infinity. This means that for any value of $s$, the probability that $S_N$ is less than or equal to $s$ approaches the probability that $S_T$ is less than or equal to $s$, i.e., $\mathbb{P}(S_N \leq s) \rightarrow \mathbb{P}(S_T \leq s)$.</p>
+<h5 id="Methodology"><em>Methodology</em><a class="anchor-link" href="#Methodology">¶</a></h5><p>To examine this theoretical convergence, we plotted the cumulative distribution functions (CDFs) of $S_N$ for $N = 6, 26, 126$ alongside the CDF of $S_T$. The CDF of $S_T$ was derived from the Black-Scholes model, assuming a lognormal distribution of stock prices at maturity. The CDFs of $S_N$ were empirically calculated using simulated stock prices at maturity from the Cox-Ross-Rubinstein (CRR) binomial tree model.</p>
+<h5 id="Observations"><em>Observations</em><a class="anchor-link" href="#Observations">¶</a></h5><p>The plots reveal that as $N$ increases, the CDF of $S_N$ more closely approximates the CDF of $S_T$. However, it's noted that the empirical CDFs of $S_N$ exhibit a concave shape, diverging slightly from the smoother ascent of the CDF of $S_T$. This observation stems from the inherent differences between the discrete nature of the CRR model and the continuous process described by the Black-Scholes model.</p>
+<h5 id="Analysis"><em>Analysis</em><a class="anchor-link" href="#Analysis">¶</a></h5><ol>
+<li><p><strong>Discretization vs. Continuous Process</strong>: The CRR model's stepwise approximation introduces granularity not present in the continuous GBM model, leading to the observed concave shapes in the empirical CDFs.</p>
+</li>
+<li><p><strong>Limitations at Finite $N$</strong>: Despite improvements with larger $N$, the finite discretization cannot fully replicate the continuous nature of GBM, resulting in the distinct shapes of the CDFs.</p>
+</li>
+<li><p><strong>Convergence in Distribution</strong>: The theoretical convergence of $\mathbb{P}(S_N \leq s)$ to $\mathbb{P}(S_T \leq s)$ is asymptotic. For large but finite $N$, the empirical CDF of $S_N$ closely approximates that of $S_T$, though it may not capture its exact shape due to the discrete versus continuous modeling differences.</p>
+</li>
+<li><p><strong>Model Assumptions</strong>: Differences in model assumptions and simplifications also contribute to the differences in predicted CDFs, underscoring the importance of model limitations in interpretation.</p>
+</li>
+</ol>
+<h5 id="Conclusion"><em>Conclusion</em><a class="anchor-link" href="#Conclusion">¶</a></h5><p>Our results align with the theory that $S_N$ converges in distribution to $S_T$ as $N \rightarrow \infty$. The observed differences in the shapes of their CDFs at finite $N$ reflect the limitations and inherent differences between discrete and continuous models. This analysis underscores the importance of considering these factors when applying these models to real-world scenarios.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Problem-%233">Problem #3<a class="anchor-link" href="#Problem-%233">¶</a></h4>
 </div>
 </div>
