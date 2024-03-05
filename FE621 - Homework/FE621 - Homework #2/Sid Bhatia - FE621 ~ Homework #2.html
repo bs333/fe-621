@@ -7861,7 +7861,7 @@ BSM Put Price: 1.37
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Proof-of-Log-Return-in-the-Black-Scholes-Model"><em>Proof of Log-Return in the Black-Scholes Model</em><a class="anchor-link" href="#Proof-of-Log-Return-in-the-Black-Scholes-Model">¶</a></h5><p>The Black-Scholes model assumes that the stock price $S_t$ follows a geometric Brownian motion (GBM) with constant drift $\mu$ and volatility $\sigma$. The stochastic differential equation (SDE) describing the dynamics of $S_t$ is given by:</p>
+<h5 id="Proof-of-Log-Return-in-the-Black-Scholes-Model">Proof of Log-Return in the Black-Scholes Model<a class="anchor-link" href="#Proof-of-Log-Return-in-the-Black-Scholes-Model">¶</a></h5><p>The Black-Scholes model assumes that the stock price $S_t$ follows a geometric Brownian motion (GBM) with constant drift $\mu$ and volatility $\sigma$. The stochastic differential equation (SDE) describing the dynamics of $S_t$ is given by:</p>
 <p>$$dS_t = \mu S_t dt + \sigma S_t dW_t,$$</p>
 <p>where $W_t$ is a Wiener process (or Brownian motion).</p>
 <h5 id="Solving-the-SDE"><em>Solving the SDE</em><a class="anchor-link" href="#Solving-the-SDE">¶</a></h5><p>To solve this SDE and find an expression for $S_T/S_0$, we apply Itô's lemma to $\log(S_t)$, noting that $\log(S_t)$ is a function $f(S_t) = \log(S_t)$ of the stochastic process $S_t$.</p>
@@ -7952,7 +7952,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Proof-of-Log-Return-in-an-$N$-step-CRR-Binomial-Tree"><em>Proof of Log-Return in an $N$-step CRR Binomial Tree</em><a class="anchor-link" href="#Proof-of-Log-Return-in-an-$N$-step-CRR-Binomial-Tree">¶</a></h5><p>The Cox-Ross-Rubinstein (CRR) binomial model is a discrete-time model for the evolution of stock prices. It assumes that at each step, the stock price can move up by a factor of $u$ or down by a factor of $d$, with probabilities $q$ and $1-q$, respectively.</p>
+<h5 id="Proof-of-Log-Return-in-an-$N$-step-CRR-Binomial-Tree">Proof of Log-Return in an $N$-step CRR Binomial Tree<a class="anchor-link" href="#Proof-of-Log-Return-in-an-$N$-step-CRR-Binomial-Tree">¶</a></h5><p>The Cox-Ross-Rubinstein (CRR) binomial model is a discrete-time model for the evolution of stock prices. It assumes that at each step, the stock price can move up by a factor of $u$ or down by a factor of $d$, with probabilities $q$ and $1-q$, respectively.</p>
 <h5 id="Model-Dynamics"><em>Model Dynamics</em><a class="anchor-link" href="#Model-Dynamics">¶</a></h5><p>Given:</p>
 <ul>
 <li>$S_0$: Initial stock price.</li>
@@ -8137,7 +8137,7 @@ this? To examine this, plot the CDF of $S_N$ $(N = 6, 26, 126)$ and $S_T$ in the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Analysis-of-Convergence:-$S_N$-to-$S_T$"><em>Analysis of Convergence: $S_N$ to $S_T$</em><a class="anchor-link" href="#Analysis-of-Convergence:-$S_N$-to-$S_T$">¶</a></h5><p>According to the theory, the stock price at the end of a binomial tree model ($S_N$) converges in distribution to the stock price following a geometric Brownian motion ($S_T$) as the number of steps in the binomial model ($N$) approaches infinity. This means that for any value of $s$, the probability that $S_N$ is less than or equal to $s$ approaches the probability that $S_T$ is less than or equal to $s$, i.e., $\mathbb{P}(S_N \leq s) \rightarrow \mathbb{P}(S_T \leq s)$.</p>
+<h5 id="Analysis-of-Convergence:-$S_N$-to-$S_T$">Analysis of Convergence: $S_N$ to $S_T$<a class="anchor-link" href="#Analysis-of-Convergence:-$S_N$-to-$S_T$">¶</a></h5><p>According to the theory, the stock price at the end of a binomial tree model ($S_N$) converges in distribution to the stock price following a geometric Brownian motion ($S_T$) as the number of steps in the binomial model ($N$) approaches infinity. This means that for any value of $s$, the probability that $S_N$ is less than or equal to $s$ approaches the probability that $S_T$ is less than or equal to $s$, i.e., $\mathbb{P}(S_N \leq s) \rightarrow \mathbb{P}(S_T \leq s)$.</p>
 <h5 id="Methodology"><em>Methodology</em><a class="anchor-link" href="#Methodology">¶</a></h5><p>To examine this theoretical convergence, we plotted the cumulative distribution functions (CDFs) of $S_N$ for $N = 6, 26, 126$ alongside the CDF of $S_T$. The CDF of $S_T$ was derived from the Black-Scholes model, assuming a lognormal distribution of stock prices at maturity. The CDFs of $S_N$ were empirically calculated using simulated stock prices at maturity from the Cox-Ross-Rubinstein (CRR) binomial tree model.</p>
 <h5 id="Observations"><em>Observations</em><a class="anchor-link" href="#Observations">¶</a></h5><p>The plots reveal that as $N$ increases, the CDF of $S_N$ more closely approximates the CDF of $S_T$. However, it's noted that the empirical CDFs of $S_N$ exhibit a concave shape, diverging slightly from the smoother ascent of the CDF of $S_T$. This observation stems from the inherent differences between the discrete nature of the CRR model and the continuous process described by the Black-Scholes model.</p>
 <h5 id="Analysis"><em>Analysis</em><a class="anchor-link" href="#Analysis">¶</a></h5><ol>
@@ -8173,6 +8173,27 @@ this? To examine this, plot the CDF of $S_N$ $(N = 6, 26, 126)$ and $S_T$ in the
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>a. Explain in simple terms the concept of exercise boundary in American option pricing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Exercise-Boundary-in-American-Option-Pricing">Exercise Boundary in American Option Pricing<a class="anchor-link" href="#Exercise-Boundary-in-American-Option-Pricing">¶</a></h5><p>In American option pricing, an important concept is the <strong>exercise boundary</strong>. This refers to the decision rule that determines whether it is more beneficial to exercise the option immediately or to hold it for potential future gain. Unlike European options, which can <em>only be exercised at maturity</em>, American options can be exercised at <strong>any point before or at the expiration date</strong>. The exercise boundary is essentially the threshold that separates the region where exercising the option is optimal from the region where holding the option is preferred.</p>
+<h5 id="Key-Points:"><em>Key Points</em>:<a class="anchor-link" href="#Key-Points:">¶</a></h5><ul>
+<li><p><strong>Early Exercise</strong>: For American options, the possibility of early exercise (before expiration) introduces the need to identify when it is advantageous to do so. This decision is influenced by factors such as the underlying asset's price, time to expiration, interest rates, and dividends.</p>
+</li>
+<li><p><strong>Call Options</strong>: For American call options on non-dividend-paying stocks, it's generally never optimal to exercise early due to the time value of money. However, for dividend-paying stocks, early exercise might be optimal just before a dividend payment if the dividend is expected to reduce the stock's price significantly.</p>
+</li>
+<li><p><strong>Put Options</strong>: For American put options, early exercise can be optimal when the underlying asset's price falls significantly. This is because exercising the put option allows the holder to sell the underlying asset at the strike price, which may be higher than the current market price.</p>
+</li>
+</ul>
+<h5 id="Visualizing-the-Exercise-Boundary:"><em>Visualizing the Exercise Boundary</em>:<a class="anchor-link" href="#Visualizing-the-Exercise-Boundary:">¶</a></h5><p>The exercise boundary can be visualized on a graph with the underlying asset's price on the x-axis and the option's payoff or profit on the y-axis. The boundary delineates areas where the option's intrinsic value (the immediate exercise value) exceeds its extrinsic value (the value of holding the option).</p>
+<p>In practical terms, the exercise boundary helps traders and investors make strategic decisions about exercising American options by evaluating the trade-off between immediate exercise and the potential for greater future benefits.</p>
 </div>
 </div>
 </div>
