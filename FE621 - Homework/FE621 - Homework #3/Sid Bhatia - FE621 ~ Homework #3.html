@@ -8065,6 +8065,42 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Problem-%232-(Delta-Hedging)">Problem #2 (Delta Hedging)<a class="anchor-link" href="#Problem-%232-(Delta-Hedging)">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In this problem we use simulation to estimate the hedging error resulting from discrete portfolio rebalancing. We sell a 3-month European call option and hedge our position by holding “delta” shares of the underlying stock. Assume that we can borrow and deposit money at a constant interest rate.</p>
+<ul>
+<li>At initiation of the contract, we receive the option premium from the client and buy delta shares of the stock. We may need to borrow money to set up the hedging portfolio.</li>
+<li>At each time step, the stock price has evolved from the previous step and the hedge must be adjusted. Depending on how the delta has changed, we need either to buy or sell shares. We also pay or earn interest on any money borrowed or deposited over the previous period.</li>
+<li>At maturity of the contract, we close our position. This means selling our shares of the stock, closing our cash account, and paying $(S_T - K)_+$ to the client. What is left after that is our profit or loss (PnL).</li>
+</ul>
+<p>Assume the underlying asset to follow a geometric Brownian motion with the parameters specified below. BSM theory says that if we sell the option at the Black-Scholes price and continuously hedge using the Black-Scholes delta, then the hedging error (PnL) goes to zero as the rebalancing frequency increases. However, continuous trading is impossible in practice, and any discrete hedging strategy results in a nonzero hedging error.</p>
+<ul>
+<li>Initial Price: $S_0 = 50$,</li>
+<li>Volatility: $\sigma = 30\%$,</li>
+<li>Strike: $K = 50$,</li>
+<li>RoR: $\mu = 10\%$</li>
+<li>Rfr: $r = 5\%$</li>
+<li>Maturity: $T = 0.25$</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
