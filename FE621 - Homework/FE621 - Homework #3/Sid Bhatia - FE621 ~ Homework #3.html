@@ -8705,6 +8705,50 @@ Daily Rebalancing - Mean Hedging Error: 2862.07, STD of Hedging Error: 141.45
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>c. Assume that you have a reason to believe that future realized volatility will be lower than the quoted implied volatility of an option. Based on your results, propose an investment strategy that you can use to benefit from your information.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Vol-Based-Investment-Strategy">Vol Based Investment Strategy<a class="anchor-link" href="#Vol-Based-Investment-Strategy">¶</a></h5><p>If an investor has credible information suggesting that the future realized volatility ($\sigma_R$) will be lower than the currently quoted implied volatility ($\sigma_I$) of an option, an effective investment strategy could involve selling options at the current higher implied volatility and then managing the resulting delta-hedged portfolio with the expectation of lower future realized volatility.</p>
+<p><em>Strat</em>:</p>
+<ol>
+<li><p><strong>Sell Options</strong>: Initiate the strategy by selling call options on the stock, thereby collecting the option premium priced at $\sigma_I$.</p>
+</li>
+<li><p><strong>Delta Hedge</strong>: Construct a delta-hedged portfolio by buying the number of shares indicated by the Black-Scholes delta, which is based on $\sigma_I$.</p>
+</li>
+<li><p><strong>Rebalance</strong>: Regularly rebalance the portfolio, but less frequently than the market standard (e.g., weekly instead of daily), to save on transaction costs and reduce the amplification of hedging errors due to volatility mismatch.</p>
+</li>
+</ol>
+<p><em>Rationale</em>:</p>
+<ul>
+<li><p>Selling the option at $\sigma_I$ allows the investor to receive a premium that may be overpriced if the market’s future realized volatility turns out to be lower ($\sigma_R &lt; \sigma_I$).</p>
+</li>
+<li><p>The delta hedging strategy should, in theory, protect against adverse movements in the stock price. However, the lower actual volatility leads to smaller stock price movements than the option pricing anticipates, which often results in less need for frequent rebalancing and lower associated costs.</p>
+</li>
+<li><p>Historical simulation results suggest that the mean hedging error does not drastically change with the frequency of rebalancing when there's a volatility mismatch. Therefore, less frequent rebalancing could be optimal in minimizing transaction costs without significantly increasing hedging risk.</p>
+</li>
+</ul>
+<p><em>Considerations</em>:</p>
+<ul>
+<li>It's important to manage your book and risk well. The key risk is that the realized volatility could increase instead of decrease, which would lead to higher-than-expected hedging errors. <strong>Don't let your book blow up</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
