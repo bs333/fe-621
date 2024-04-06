@@ -7571,7 +7571,7 @@ a.anchor-link {
 <li><p><strong>MC Estimator</strong>: The price of the option is the present value of the expected payoff under the risk-neutral measure $\mathbb{Q}$, which is estimated as the average of the discounted payoffs across all simulated paths:</p>
 </li>
 </ol>
-<p>$$P = e^{-rT} \mathbb{E}^Q[f(S_t)], \; \text{where} \; f \; \text{is the payoff function}. \\ \dots \\ \hat{C} = \exp\{(-rT)\} \frac{1}{n} \sum_{i = 1}^n f(S_t)$$</p>
+<p>$$P = e^{-rT} \mathbb{E}^Q[f(S_t)], \; \text{where} \; f \; \text{is the payoff function}. \\ \dots \\ \hat{C} = \exp\{(-rT)\} \frac{1}{n} \sum_{i = 1}^n f(S^i_t)$$</p>
 <ol start="4">
 <li><strong>CI</strong>: The 95% confidence interval for the true option price is given by $$\hat{C} \pm z_{\alpha / 2} \cdot SE$$</li>
 </ol>
@@ -7737,6 +7737,50 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>As seen above, the CI <strong>contains the true price</strong> of the (call) option as well as the estimator: $14.231 \cap 14.257 \in (14.116859508454846, 14.39718273516616)$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>b. Use (biased) simulation based on the Euler discretization scheme for geometric Brownian motion. Use a discretization with $m = 5$ steps and $n = 100000$ paths.</p>
+<p>Clearly describe the steps of your simulation procedure, and provide formulas for the Monte Carlo estimator and a corresponding 95% confidence interval. Report both the estimator and the confidence interval. Does the confidence interval contain the true price of the option</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li><p><strong>Discretization of the Time Interval</strong>: Divide time to maturity/expiration $T$ into $m$ equal steps with duration $\Delta t = \frac{T}{m}$.</p>
+</li>
+<li><p><strong>Stock Process Simulation</strong>: Start from $S_0$ and iteratively simulate the stock price at each step until $T$ using</p>
+</li>
+</ol>
+<p>$$S_{t + \Delta t} = S_t \exp \left( (r - \frac{1}{2} \sigma^2) \Delta t + \sigma \sqrt{\Delta t} Z_t \right)$$</p>
+<ol start="3">
+<li><p><strong>Payoff Calculation</strong>: At the end of each path, the payoff is $f(S_T)$ which is equal to $$(S_T - K)_+$$ for a European call option for $f(X) = \max(X - K, 0).$</p>
+</li>
+<li><p><strong>MC Estimator</strong>: The option price is estimated as the present value of the expected payoff, calculated as the average of the discounted payoffs across all simulated paths:</p>
+</li>
+</ol>
+<p>$$P = e^{-rT} \mathbb{E}^Q [f(S_T)]$$</p>
+<p>$$\hat{C} = e^{-rT} \cdot \frac{1}{n} \sum_{i = 1}^n \max(S^i_T - K, 0)$$</p>
+<ol start="5">
+<li><strong>CI</strong>: Calculate a 95% confidence interval for the true option price based on the standard deviation of the simulated payoffs:</li>
+</ol>
+<p>$$\text{CI}_{95\%} = \hat{C} \pm 1.96 \cdot \frac{\sigma_{\hat{C}}}{\sqrt{n}}$$</p>
+<ol start="6">
+<li><strong>True Price Comparison</strong>: The confidence interval can be compared with the true price obtained from the BSM closed-form solution to check if it contains the true price.</li>
+</ol>
 </div>
 </div>
 </div>
