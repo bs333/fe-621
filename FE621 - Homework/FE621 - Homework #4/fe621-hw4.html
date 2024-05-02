@@ -7556,6 +7556,25 @@ $$</p>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</p>
+<p>$$
+\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{3}
+$$</p>
+<p>where $\{\hat{S}_i(k)\}_{i\geq0}$ is the $k$-th simulated path of GBM at times $\{t_i\}_{i\geq0}$ where $t_i = i \cdot \frac{T}{m}$ and</p>
+<p>$$
+\hat{\tau}(k) = \inf{\{i \geq 0 : \hat{S}_i(k) &gt; H\}} \tag{4}
+$$</p>
+<p>is the <strong>stopping time</strong> of the simulated path to the barrier $H$.</p>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
