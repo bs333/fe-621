@@ -7754,8 +7754,13 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Consider a basket call option with strike $K$, maturity $T$, and payoff the following:</p>
 <p>$$
-\left(\frac{1}{d} \sum_{i = 1}^d S_T^i - K\right)^+ \tag{5}
+\left(\frac{1}{d} \sum_{i = 1}^d S_T^i - K\right)^+, \tag{5}
 $$</p>
+<p>where the $d$ assets $\{S_t^1, \dots, S_t^d\}_{t \geq 0}$ follow a $d$-dimensional geometric Brownian motion (GBM). Specifically,</p>
+<p>$$
+\frac{dS_t^i}{S_t^i} = r dt + \sigma^i dW_t^i, \tag{6}
+$$</p>
+<p>where $\{W_t^1, \dots, W_t^d\}_{t \geq 0}$ is a $d$-dimensional Brownian motion with the covariance matrix</p>
 </div>
 </div>
 </div>
