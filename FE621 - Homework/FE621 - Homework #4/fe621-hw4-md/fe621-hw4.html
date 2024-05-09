@@ -7559,21 +7559,11 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>a. Is an UOP option cheaper or more expensive than a vanilla put option? Explain.</em></p>
+<h4 id="1.2-Barrier-Options-Implementation">1.2 Barrier Options Implementation<a class="anchor-link" href="#1.2-Barrier-Options-Implementation">¶</a></h4><h5 id="1.2.1-Knock-Out-vs.-Vanilla">1.2.1 Knock-Out vs. Vanilla<a class="anchor-link" href="#1.2.1-Knock-Out-vs.-Vanilla">¶</a></h5><p><em>a. Is an UOP option cheaper or more expensive than a vanilla put option? Explain.</em></p>
 <p>An <strong>up-and-out put option</strong> (UOP) is generally cheaper than a vanilla put option. This difference in pricing comes from the <strong>additional condition</strong> involved in the UOP, where the option becomes worthless if the stock price exceeds the barrier $H$ before expiration. In a vanilla put option, the holder has the right to sell the stock at the strike price $K$ <strong>regardless of how high the stock price has climbed during the option's life</strong>.</p>
 <p>This restriction in the UOP <strong>reduces the probability</strong> of a payout compared to a vanilla put option, where there is no upper limit on the stock price affecting the payoff.</p>
 <p>Therefore, the UOP has a <strong>lower premium</strong> due to its <em>reduced likelihood of exercising profitably</em>. Essentially, the risk of the option knocking out (i.e., becoming worthless if the stock price exceeds the barrier $H$ reduces its cost.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</em></p>
+<h5 id="1.2.2-Estimator-Bias-Definition">1.2.2 Estimator Bias Definition<a class="anchor-link" href="#1.2.2-Estimator-Bias-Definition">¶</a></h5><p><em>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</em></p>
 <p>$$
 \hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{4}
 $$</p>
@@ -7582,16 +7572,6 @@ $$</p>
 \hat{\tau}(k) = \inf{\{i \geq 0 : \hat{S}_i(k) &gt; H\}} \tag{5}
 $$</p>
 <p>is the <strong>stopping time</strong> of the simulated path to the barrier $H$.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><em>(i) What is the definition of $\hat{P}_{n,m}$ being an unbiased/biased high/biased low estimator for P?</em></p>
 <p>The definition of $\hat{P}_{n,m}$ being an <strong>unbiased</strong>, <strong>biased high</strong>, or <strong>biased low</strong> estimator for $P$ relates to its <strong>expected value</strong> compared to the true value $P$:</p>
 <ul>
@@ -7599,23 +7579,13 @@ $$</p>
 <li><strong>Biased High Estimator</strong>: $\mathbb{E}[\hat{P}_{n,m}] &gt; P$, or the estimator systematically <em>overestimates</em> the true price.</li>
 <li><strong>Biased Low Estimator</strong>: $\mathbb{E}[\hat{P}_{n,m}] &lt; P$, or the estimator systematically <em>underestimates</em> the true price.</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>(ii) Do you expect $\hat{P}_{n,m}$ to be biased (high/low)? Explain.</em></p>
-<h5 id="Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">Bias Analysis of the Monte Carlo Estimator $\hat{P}_{n,m}$<a class="anchor-link" href="#Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">¶</a></h5><p>Given the Monte Carlo estimator for the up-and-out put option:</p>
+<h5 id="1.2.3-Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">1.2.3 Bias Analysis of the Monte Carlo Estimator $\hat{P}_{n,m}$<a class="anchor-link" href="#1.2.3-Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">¶</a></h5><p><em>(ii) Do you expect $\hat{P}_{n,m}$ to be biased (high/low)? Explain.</em></p>
+<p>Given the Monte Carlo estimator for the up-and-out put option:</p>
 <p>$$
 \hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{4}
 $$</p>
 <p>This estimator calculates the option price by simulating stock price paths and applying the indicator function to determine if these paths exceed the barrier $H$ before time $T$. The estimator’s potential bias depends significantly on how well the simulation captures the dynamics of the stock price and its interaction with the barrier.</p>
-<h4 id="Factors-Influencing-Bias:">Factors Influencing Bias:<a class="anchor-link" href="#Factors-Influencing-Bias:">¶</a></h4><ol>
+<h4 id="1.2.4-Factors-Influencing-Bias">1.2.4 Factors Influencing Bias<a class="anchor-link" href="#1.2.4-Factors-Influencing-Bias">¶</a></h4><ol>
 <li><p><strong>Barrier Breach Underestimation</strong>:</p>
 <ul>
 <li>If the Monte Carlo simulation underestimates the frequency of the barrier breach (due to coarse time grid or insufficient number of paths), the result is an overestimated option price, leading to a <strong>biased high</strong> estimator.</li>
@@ -7632,18 +7602,8 @@ $$</p>
 </ul>
 </li>
 </ol>
-<h5 id="Bias-Synthesis:">Bias Synthesis:<a class="anchor-link" href="#Bias-Synthesis:">¶</a></h5><p>The bias of $\hat{P}_{n,m}$ largely depends on the fidelity of the simulation in representing the true stock price dynamics and its interaction with the barrier $H$. Without precise tuning of simulation parameters and thorough model validation against real-world data, there is a risk that $\hat{P}_{n,m}$ might be either biased high or biased low. Therefore, careful calibration and extensive validation of the Monte Carlo model are crucial for ensuring the accuracy of the estimator.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>c. Use the following parameter table to compute the estimator $\hat{P}_{n, m}$ along with a $95\%$ confidence interval. Use $m = 63$ and $n = 100,000.$</em><sup id="a1"><a href="#f1">1</a></sup></p>
+<h5 id="1.2.5-Bias-Synthesis">1.2.5 Bias Synthesis<a class="anchor-link" href="#1.2.5-Bias-Synthesis">¶</a></h5><p>The bias of $\hat{P}_{n,m}$ largely depends on the fidelity of the simulation in representing the true stock price dynamics and its interaction with the barrier $H$. Without precise tuning of simulation parameters and thorough model validation against real-world data, there is a risk that $\hat{P}_{n,m}$ might be either biased high or biased low. Therefore, careful calibration and extensive validation of the Monte Carlo model are crucial for ensuring the accuracy of the estimator.</p>
+<h5 id="1.2.6-Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">1.2.6 Monte Carlo Simulation of Up-and-Out (KO) Put Option<a class="anchor-link" href="#1.2.6-Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">¶</a></h5><p><em>c. Use the following parameter table to compute the estimator $\hat{P}_{n, m}$ along with a $95\%$ confidence interval. Use $m = 63$ and $n = 100,000.$</em><sup id="a1"><a href="#f1">1</a></sup></p>
 <table>
 <thead>
 <tr>
@@ -7687,9 +7647,19 @@ $$</p>
 </table>
 <figcaption><center><i>Figure 1 - Parameter Table for the Up-and-Out/Knock-Out Put Option<i></i></i></center></figcaption>
 <br/>
-<p><em>Given the exact option price, are your simulation results consistent with your guess about the bias in part (b)-(ii)?</em></p>
 <p><span id="f1">1. In the Black-Scholes-Merton model, there exist explicit formulas for a variety of barrier option (Bjork). The exact price of the UOP option in this problem is $6.869.<a href="#a1">↩</a></span></p>
-<h5 id="Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">Monte Carlo Simulation of Up-and-Out (KO) Put Option<a class="anchor-link" href="#Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">¶</a></h5><p>The following Python code simulates the price of an up-and-out put option using the given parameters and a Monte Carlo approach. We compute the estimated option price along with a $95\%$ confidence interval to compare against the exact price of $\bf{\$6.869}$. This comparison will help assess the bias discussed in part (b)-(ii):</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Given the exact option price, are your simulation results consistent with your guess about the bias in part (b)-(ii)?</em></p>
+<p>The following Python code simulates the price of an up-and-out put option using the given parameters and a Monte Carlo approach. We compute the estimated option price along with a $95\%$ confidence interval to compare against the exact price of $\bf{\$6.869}$. This comparison will help assess the bias discussed in part (b)-(ii):</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Parameters</span>
@@ -7730,7 +7700,7 @@ $$</p>
 <span class="mi">95</span><span class="o">%</span> <span class="n">Confidence</span> <span class="n">Interval</span><span class="p">:</span> <span class="p">(</span><span class="mf">7.29108737732994</span><span class="p">,</span> <span class="mf">7.388124622238721</span><span class="p">)</span>
 <span class="n">Exact</span> <span class="n">Price</span><span class="p">:</span> <span class="mf">6.869</span>
 </pre></div>
-<h5 id="Monte-Carlo-Analysis">Monte Carlo Analysis<a class="anchor-link" href="#Monte-Carlo-Analysis">¶</a></h5><p>The estimated price from the Monte Carlo simulation is $\bf{\$7.3396}$, which is higher than the exact price of $\$6.869$. This result falls outside the $95\%$ confidence interval of <strong>$(7.2911, 7.3881)$</strong>, indicating that the simulation might be <strong>biased high</strong>. This is consistent with the earlier discussion about potential biases in the Monte Carlo estimator for the up-and-out put option.</p>
+<h5 id="1.2.7-Monte-Carlo-Analysis">1.2.7 Monte Carlo Analysis<a class="anchor-link" href="#1.2.7-Monte-Carlo-Analysis">¶</a></h5><p>The estimated price from the Monte Carlo simulation is $\bf{\$7.3396}$, which is higher than the exact price of $\$6.869$. This result falls outside the $95\%$ confidence interval of <strong>$(7.2911, 7.3881)$</strong>, indicating that the simulation might be <strong>biased high</strong>. This is consistent with the earlier discussion about potential biases in the Monte Carlo estimator for the up-and-out put option.</p>
 <p>This comparison helps us understand the reliability of the simulation and can guide adjustments in the model or parameters to reduce bias and improve accuracy.</p>
 <hr/>
 <div style="page-break-after: always;"></div>
@@ -7798,27 +7768,6 @@ $$</p>
 $$</p>
 <p>where $t \cdot \boldsymbol{\Sigma}$ indicates that the variance of each Brownian motion component grows linearly with time, and the correlation structure remains constant over time.</p>
 <h5 id="2.1.6-Synthesis">2.1.6 Synthesis<a class="anchor-link" href="#2.1.6-Synthesis">¶</a></h5><p>Basket call options are complex financial instruments that require a deep understanding of stochastic processes, correlation, and risk management. This framework provides a way to price such options and evaluate their potential payoff in a multi-asset setting.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="2.2.1-sket">2.2.1 sket<a class="anchor-link" href="#2.2.1-sket">¶</a></h4>
 </div>
 </div>
 </div>
