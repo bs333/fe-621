@@ -7776,6 +7776,7 @@ $$</p>
 <li>$\sigma^i$ is the volatility of the $i$-th asset.</li>
 <li>$W_t^i$ represents the $i$-th component of a $d$-dimensional Brownian motion.</li>
 </ul>
+<h5 id="Correlation-Structure">Correlation Structure<a class="anchor-link" href="#Correlation-Structure">¶</a></h5><p>The assets in the basket are correlated, as reflected by their movements being driven by a common set of Brownian motions $\{W_t^1, \dots, W_t^d\}$. The correlation among these assets is captured by the covariance matrix:</p>
 <p>$$
 \boldsymbol{\Sigma} = \begin{pmatrix}
 1 &amp; \rho &amp; \rho &amp; \cdots &amp; \rho \\
@@ -7783,12 +7784,12 @@ $$</p>
 \rho &amp; \rho &amp; 1 &amp; \cdots &amp; \rho \\
 \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 \rho &amp; \rho &amp; \rho &amp; \cdots &amp; 1
-\end{pmatrix}. \tag{7}
+\end{pmatrix}, \tag{7}
 $$</p>
-<p>In other words,
-$$
-\{W_t^1, \dots, W_t^d\} \sim \mathcal{N}(\mu = 0, \sigma^2 = t \cdot \boldsymbol{\Sigma}), \; \forall t \in \mathbb{R}^+ \tag{8}
-$$</p>
+<p>where:</p>
+<ul>
+<li>$\rho$ represents the pairwise Pearson correlation coefficient between any two different assets.</li>
+</ul>
 </div>
 </div>
 </div>
