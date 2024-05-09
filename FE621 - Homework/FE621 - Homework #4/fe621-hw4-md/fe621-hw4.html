@@ -7533,12 +7533,12 @@ $$</p>
 \begin{cases} 
 1 &amp; \text{if } \tau &gt; T \\
 0 &amp; \text{otherwise}
-\end{cases}
+\end{cases} \tag{3}
 $$</p>
 <p>where $\tau$ is the <strong>stopping time</strong> defined as the first instance when the stock price $S_t$ reaches or exceeds the barrier level $H$.</p>
 <h5 id="Indicator-Definition">Indicator Definition<a class="anchor-link" href="#Indicator-Definition">¶</a></h5><p>The <strong>infimum function</strong> used to define the stopping time $\tau$ for the up-and-out put option is as follows:</p>
 <p>$$
-\tau = \inf{\{t &gt; 0 : S_t \geq H\}}
+\tau = \inf{\{t &gt; 0 : S_t \geq H\}} \tag{2}
 $$</p>
 <p>In this expression:</p>
 <ul>
@@ -7574,11 +7574,11 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><em>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</em></p>
 <p>$$
-\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{3}
+\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{4}
 $$</p>
 <p>where $\{\hat{S}_i(k)\}_{i\geq0}$ is the $k$-th simulated path of GBM at times $\{t_i\}_{i\geq0}$ where $t_i = i \cdot \frac{T}{m}$ and</p>
 <p>$$
-\hat{\tau}(k) = \inf{\{i \geq 0 : \hat{S}_i(k) &gt; H\}} \tag{4}
+\hat{\tau}(k) = \inf{\{i \geq 0 : \hat{S}_i(k) &gt; H\}} \tag{5}
 $$</p>
 <p>is the <strong>stopping time</strong> of the simulated path to the barrier $H$.</p>
 </div>
@@ -7611,7 +7611,7 @@ $$</p>
 <p><em>(ii) Do you expect $\hat{P}_{n,m}$ to be biased (high/low)? Explain.</em></p>
 <h5 id="Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">Bias Analysis of the Monte Carlo Estimator $\hat{P}_{n,m}$<a class="anchor-link" href="#Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">¶</a></h5><p>Given the Monte Carlo estimator for the up-and-out put option:</p>
 <p>$$
-\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{3}
+\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{4}
 $$</p>
 <p>This estimator calculates the option price by simulating stock price paths and applying the indicator function to determine if these paths exceed the barrier $H$ before time $T$. The estimator’s potential bias depends significantly on how well the simulation captures the dynamics of the stock price and its interaction with the barrier.</p>
 <h4 id="Factors-Influencing-Bias:">Factors Influencing Bias:<a class="anchor-link" href="#Factors-Influencing-Bias:">¶</a></h4><ol>
@@ -7684,6 +7684,7 @@ $$</p>
 </tr>
 </tbody>
 </table>
+<figcaption><center>**Figure 1 - Parameter Table for the Up-and-Out/Knock-Out Put Option**</center></figcaption>
 <p><em>Given the exact option price, are your simulation results consistent with your guess about the bias in part (b)-(ii)?</em></p>
 <p><span id="f1">1. In the Black-Scholes-Merton model, there exist explicit formulas for a variety of barrier option (Bjork). The exact price of the UOP option in this problem is $6.869.<a href="#a1">↩</a></span></p>
 <h5 id="Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">Monte Carlo Simulation of Up-and-Out (KO) Put Option<a class="anchor-link" href="#Monte-Carlo-Simulation-of-Up-and-Out-(KO)-Put-Option">¶</a></h5><p>The following Python code simulates the price of an up-and-out put option using the given parameters and a Monte Carlo approach. We compute the estimated option price along with a $95\%$ confidence interval to compare against the exact price of $\bf{\$6.869}$. This comparison will help assess the bias discussed in part (b)-(ii):</p>
@@ -7729,6 +7730,31 @@ $$</p>
 </pre></div>
 <h5 id="Monte-Carlo-Analysis">Monte Carlo Analysis<a class="anchor-link" href="#Monte-Carlo-Analysis">¶</a></h5><p>The estimated price from the Monte Carlo simulation is $\bf{\$7.3396}$, which is higher than the exact price of $\$6.869$. This result falls outside the $95\%$ confidence interval of <strong>$(7.2911, 7.3881)$</strong>, indicating that the simulation might be <strong>biased high</strong>. This is consistent with the earlier discussion about potential biases in the Monte Carlo estimator for the up-and-out put option.</p>
 <p>This comparison helps us understand the reliability of the simulation and can guide adjustments in the model or parameters to reduce bias and improve accuracy.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Problem-%232-(Basket-Options-&amp;-Correlation)">Problem #2 (Basket Options &amp; Correlation)<a class="anchor-link" href="#Problem-%232-(Basket-Options-&amp;-Correlation)">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Consider a basket call option with strike $K$, maturity $T$, and payoff the following:</p>
+<p>$$
+
+$$</p>
 </div>
 </div>
 </div>
