@@ -7769,6 +7769,53 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="2.2-Basket-Call-Option-Implementation">2.2 Basket Call Option Implementation<a class="anchor-link" href="#2.2-Basket-Call-Option-Implementation">¶</a></h4><p>The following section delves into the implementation and computer programming in Python/Jupyter Markdown for the basket call option.</p>
 <h5 id="2.2.1-Basket-Call-Monte-Carlo-Estimation">2.2.1 Basket Call Monte Carlo Estimation<a class="anchor-link" href="#2.2.1-Basket-Call-Monte-Carlo-Estimation">¶</a></h5><p><em>a. Compute the price of the basket option with strike $K = 100$ using Monte Carlo simulation. Explain in detail your simulation procedure.</em></p>
+<p><em>Simulation Setup</em></p>
+<p>We start by setting up our environment and defining the parameters for our Monte Carlo simulation.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># For reproducibility</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">100</span>            <span class="c1"># Strike price</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.05</span>           <span class="c1"># Risk-free rate</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>            <span class="c1"># Time to maturity</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">5</span>              <span class="c1"># Number of assets in the basket</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>          <span class="c1"># Number of simulations</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>  <span class="c1"># Volatilities of each asset</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">0.5</span>          <span class="c1"># Correlation coefficient</span>
+
+<span class="c1"># Constructing the covariance matrix</span>
+<span class="n">cov_matrix</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+<p><em>Asset Price Simulation</em></p>
+<p>Using the GBM formula to simulate the end prices for each asset.</p>
+<div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="mi">252</span>  <span class="c1"># Daily steps</span>
+<span class="c1"># Cholesky decomposition for correlated asset paths</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">)</span>
+
+<span class="c1"># Simulating asset prices</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Initial price of each asset</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">252</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+    <span class="n">daily_returns</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
+    <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">daily_returns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+<p><em>Option Payoff Calculation</em></p>
+<p>Calculate the basket value and option payoff.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Calculate basket average prices at maturity</span>
+<span class="n">basket_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Calculate payoffs</span>
+<span class="n">payoffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">basket_prices</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Discount payoffs to present value and average</span>
+<span class="n">option_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
+</pre></div>
+<p><em>Results</em></p>
+<p>Display the estimated option price from the simulation.</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Estimated Basket Call Option Price: </span><span class="si">{</span><span class="n">option_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">Estimated</span> <span class="n">Basket</span> <span class="n">Call</span> <span class="n">Option</span> <span class="n">Price</span><span class="p">:</span> <span class="mf">9.96</span>
+</pre></div>
+<p><em>(i). For $d = 5$ and $d = 10$, plot in the same graph the price estimate as a function of $\rho$ for $-\frac{1}{d - 1} \leq \rho \leq 1$.</em></p>
 </div>
 </div>
 </div>
