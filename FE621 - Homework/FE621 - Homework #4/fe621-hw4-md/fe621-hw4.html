@@ -7790,6 +7790,12 @@ $$</p>
 <ul>
 <li>$\rho$ represents the pairwise Pearson correlation coefficient between any two different assets.</li>
 </ul>
+<h5 id="Statistical-Properties">Statistical Properties<a class="anchor-link" href="#Statistical-Properties">¶</a></h5><p>The Brownian motions are assumed to have a multivariate normal distribution across time with the mean vector zero and the covariance matrix scaled by time:</p>
+<p>$$
+\{W_t^1, \dots, W_t^d\} \sim \mathcal{N}(\mu = 0, \sigma^2 = t \cdot \boldsymbol{\Sigma}), \; \forall t \in \mathbb{R}^+, \tag{8}
+$$</p>
+<p>where $t \cdot \boldsymbol{\Sigma}$ indicates that the variance of each Brownian motion component grows linearly with time, and the correlation structure remains constant over time.</p>
+<h5 id="Synthesis">Synthesis<a class="anchor-link" href="#Synthesis">¶</a></h5><p>Basket call options are complex financial instruments that require a deep understanding of stochastic processes, correlation, and risk management. This framework provides a way to price such options and evaluate their potential payoff in a multi-asset setting.</p>
 </div>
 </div>
 </div>
