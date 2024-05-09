@@ -7508,18 +7508,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Problem-%231-(Barrier-Options)">Problem #1 (Barrier Options)<a class="anchor-link" href="#Problem-%231-(Barrier-Options)">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="1.1-Barrier-Options-Theory">1.1 Barrier Options Theory<a class="anchor-link" href="#1.1-Barrier-Options-Theory">¶</a></h4><p>The following section delves into the underlying mathematics &amp; theoretical foundations for barrier options which are necessary to rigorously define &amp; evaluate before implementation.</p>
+<h3 id="Problem-%231-(Barrier-Options)">Problem #1 (Barrier Options)<a class="anchor-link" href="#Problem-%231-(Barrier-Options)">¶</a></h3><h4 id="1.1-Barrier-Options-Theory">1.1 Barrier Options Theory<a class="anchor-link" href="#1.1-Barrier-Options-Theory">¶</a></h4><p>The following section delves into the underlying mathematics &amp; theoretical foundations for barrier options which are necessary to rigorously define &amp; evaluate before implementation.</p>
 <h5 id="1.1.1-Price-Formulation">1.1.1 Price Formulation<a class="anchor-link" href="#1.1.1-Price-Formulation">¶</a></h5><p>The price of an <strong>up-and-out put option</strong>/<strong>knock-out</strong> (<strong>UOP</strong>) with strike price $K$ and barrier $H$ is given by:</p>
 <p>$$
 P = e^{-r T} \mathbb{E}^Q[(K - S_T)_+ \mathbf{1}_{\{\tau &gt; T\}}] \tag{1}
@@ -7537,7 +7526,7 @@ $$</p>
 \end{cases} \tag{3}
 $$</p>
 <p>where $\tau$ is the <strong>stopping time</strong> defined as the first instance when the stock price $S_t$ reaches or exceeds the barrier level $H$.</p>
-<h4 id="1.1.3-Indicator-Definition">1.1.3 Indicator Definition<a class="anchor-link" href="#1.1.3-Indicator-Definition">¶</a></h4><p>The <strong>infimum function</strong> used to define the stopping time $\tau$ for the up-and-out put option is as follows:</p>
+<h5 id="1.1.3-Indicator-Definition">1.1.3 Indicator Definition<a class="anchor-link" href="#1.1.3-Indicator-Definition">¶</a></h5><p>The <strong>infimum function</strong> used to define the stopping time $\tau$ for the up-and-out put option is as follows:</p>
 <p>$$
 \tau = \inf{\{t &gt; 0 : S_t \geq H\}} \tag{2}
 $$</p>
@@ -7548,7 +7537,7 @@ $$</p>
 <li>The function $\inf{\{\cdot\}}$ denotes the <strong>infimum</strong> of a set, which is the greatest lower bound of that set. In this case, it identifies the <em>smallest time value</em> from the set of all times where $S_t$ is at least $H$.</li>
 </ul>
 <p>If the set $\{t &gt; 0 : S_t \geq H\}$ is empty (i.e., the stock price never reaches or exceeds $H$ during the option's life), $\tau$ is considered infinite, and the indicator function $\mathbf{1}_{\{\tau &gt; T\}}$ equals 1, implying that the option behaves like a standard put option throughout its lifetime.</p>
-<h4 id="1.1.4-Payoff">1.1.4 Payoff<a class="anchor-link" href="#1.1.4-Payoff">¶</a></h4><p>The payoff is the <strong>same</strong> as that of a <em>vanilla put option</em>, unless the stock price goes above $H$ during the life of the option, in which case the payoff is <strong>zero</strong>. Assume the process $\{S_t\}_{t\geq0}$ to follow a geometric Brownian motion (GBM).</p>
+<h5 id="1.1.4-Payoff">1.1.4 Payoff<a class="anchor-link" href="#1.1.4-Payoff">¶</a></h5><p>The payoff is the <strong>same</strong> as that of a <em>vanilla put option</em>, unless the stock price goes above $H$ during the life of the option, in which case the payoff is <strong>zero</strong>. Assume the process $\{S_t\}_{t\geq0}$ to follow a geometric Brownian motion (GBM).</p>
 </div>
 </div>
 </div>
@@ -7585,7 +7574,7 @@ $$</p>
 \hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{4}
 $$</p>
 <p>This estimator calculates the option price by simulating stock price paths and applying the indicator function to determine if these paths exceed the barrier $H$ before time $T$. The estimator’s potential bias depends significantly on how well the simulation captures the dynamics of the stock price and its interaction with the barrier.</p>
-<h4 id="1.2.4-Factors-Influencing-Bias">1.2.4 Factors Influencing Bias<a class="anchor-link" href="#1.2.4-Factors-Influencing-Bias">¶</a></h4><ol>
+<h5 id="1.2.4-Factors-Influencing-Bias">1.2.4 Factors Influencing Bias<a class="anchor-link" href="#1.2.4-Factors-Influencing-Bias">¶</a></h5><ol>
 <li><p><strong>Barrier Breach Underestimation</strong>:</p>
 <ul>
 <li>If the Monte Carlo simulation underestimates the frequency of the barrier breach (due to coarse time grid or insufficient number of paths), the result is an overestimated option price, leading to a <strong>biased high</strong> estimator.</li>
