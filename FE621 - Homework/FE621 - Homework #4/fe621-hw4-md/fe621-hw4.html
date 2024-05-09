@@ -7757,8 +7757,14 @@ $$</p>
 <p>$$
 \left(\frac{1}{d} \sum_{i = 1}^d S_T^i - K\right)^+, \tag{5}
 $$</p>
-<p>where the $d$ assets $\{S_t^1, \dots, S_t^d\}_{t \geq 0}$ follow a $d$-dimensional geometric Brownian motion (GBM). Specifically,</p>
-<p>$$
+<p>where:</p>
+<ul>
+<li>$S_T^i$ is the price at maturity $T$ of the $i$-th asset in the basket.</li>
+<li>$d$ is the total number of assets in the basket.</li>
+<li>$K$ is the strike price of the option.</li>
+</ul>
+<p>This payoff formula calculates the <em>average</em> of the final prices of the $d$ assets, subtracts the strike price, and applies a <strong>positive part function</strong>, which ensures that the payoff is <strong>non-negative</strong>.</p>
+<h5 id="Asset-Dynamics">Asset Dynamics<a class="anchor-link" href="#Asset-Dynamics">¶</a></h5><p>$$
 \frac{dS_t^i}{S_t^i} = r dt + \sigma^i dW_t^i, \tag{6}
 $$</p>
 <p>where $\{W_t^1, \dots, W_t^d\}_{t \geq 0}$ is a $d$-dimensional Brownian motion with the covariance matrix</p>
