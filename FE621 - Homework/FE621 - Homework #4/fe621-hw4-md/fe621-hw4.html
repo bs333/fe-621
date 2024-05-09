@@ -7547,7 +7547,7 @@ $$</p>
 <li>The function $\inf{\{\cdot\}}$ denotes the <strong>infimum</strong> of a set, which is the greatest lower bound of that set. In this case, it identifies the <em>smallest time value</em> from the set of all times where $S_t$ is at least $H$.</li>
 </ul>
 <p>If the set $\{t &gt; 0 : S_t \geq H\}$ is empty (i.e., the stock price never reaches or exceeds $H$ during the option's life), $\tau$ is considered infinite, and the indicator function $\mathbf{1}_{\{\tau &gt; T\}}$ equals 1, implying that the option behaves like a standard put option throughout its lifetime.</p>
-<h5 id="Payoff">Payoff<a class="anchor-link" href="#Payoff">¶</a></h5><p>The payoff is the <strong>same</strong> as that of a <em>vanilla put option</em>, unless the stock price goes above $H$ during the life of the option, in which case the payoff is <strong>zero</strong>. Assume the process $\{S_t\}_{t\geq0}$ to follow a GBM.</p>
+<h5 id="Payoff">Payoff<a class="anchor-link" href="#Payoff">¶</a></h5><p>The payoff is the <strong>same</strong> as that of a <em>vanilla put option</em>, unless the stock price goes above $H$ during the life of the option, in which case the payoff is <strong>zero</strong>. Assume the process $\{S_t\}_{t\geq0}$ to follow a geometric Brownian motion (GBM).</p>
 </div>
 </div>
 </div>
@@ -7761,6 +7761,15 @@ $$</p>
 \frac{dS_t^i}{S_t^i} = r dt + \sigma^i dW_t^i, \tag{6}
 $$</p>
 <p>where $\{W_t^1, \dots, W_t^d\}_{t \geq 0}$ is a $d$-dimensional Brownian motion with the covariance matrix</p>
+<p>$$
+\boldsymbol{\Sigma} = \begin{pmatrix}
+1 &amp; \rho &amp; \rho &amp; \cdots &amp; \rho \\
+\rho &amp; 1 &amp; \rho &amp; \cdots &amp; \rho \\
+\rho &amp; \rho &amp; 1 &amp; \cdots &amp; \rho \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\rho &amp; \rho &amp; \rho &amp; \cdots &amp; 1
+\end{pmatrix}. \tag{7}
+$$</p>
 </div>
 </div>
 </div>
