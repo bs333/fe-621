@@ -7609,9 +7609,29 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><em>(ii) Do you expect $\hat{P}_{n,m}$ to be biased (high/low)? Explain.</em></p>
+<h5 id="Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">Bias Analysis of the Monte Carlo Estimator $\hat{P}_{n,m}$<a class="anchor-link" href="#Bias-Analysis-of-the-Monte-Carlo-Estimator-$%5Chat%7BP%7D_%7Bn,m%7D$">¶</a></h5><p>Given the Monte Carlo estimator for the up-and-out put option:</p>
+<p>$$
+\hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{3}
+$$</p>
+<p>This estimator calculates the option price by simulating stock price paths and applying the indicator function to determine if these paths exceed the barrier $H$ before time $T$. The estimator’s potential bias depends significantly on how well the simulation captures the dynamics of the stock price and its interaction with the barrier.</p>
+<h4 id="Factors-Influencing-Bias:">Factors Influencing Bias:<a class="anchor-link" href="#Factors-Influencing-Bias:">¶</a></h4><ol>
+<li><p><strong>Barrier Breach Underestimation</strong>:</p>
 <ul>
-<li><strong>Potential for Low Bias</strong>: KO put may be biased low due to the <em>discretization</em> of the path simulation. In practical settings, the simulation might not capture every peak that crosses the barrier $H$ within the continuous monitoring of the actual path, especially if the time steps $(\Delta t)$ are not small enough. This miss means some paths that should knock out (reach or exceed $H$)</li>
+<li>If the Monte Carlo simulation underestimates the frequency of the barrier breach (due to coarse time grid or insufficient number of paths), the result is an overestimated option price, leading to a <strong>biased high</strong> estimator.</li>
 </ul>
+</li>
+<li><p><strong>Barrier Breach Overestimation</strong>:</p>
+<ul>
+<li>Conversely, an over-sensitive simulation (possibly due to a very fine time grid) might overestimate barrier breaches, leading to a conservative estimation where the payoff is zeroed out more often than it should be, making the estimator <strong>biased low</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Volatility and Path Dependency</strong>:</p>
+<ul>
+<li>The inherent variability in the GBM model and path dependency can affect the frequency of barrier breaches. Differences in how volatility is modeled and the stochastic nature of the paths can influence whether the simulated paths breach the barrier, thus impacting the bias of the estimator.</li>
+</ul>
+</li>
+</ol>
+<h5 id="Bias-Synthesis:">Bias Synthesis:<a class="anchor-link" href="#Bias-Synthesis:">¶</a></h5><p>The bias of $\hat{P}_{n,m}$ largely depends on the fidelity of the simulation in representing the true stock price dynamics and its interaction with the barrier $H$. Without precise tuning of simulation parameters and thorough model validation against real-world data, there is a risk that $\hat{P}_{n,m}$ might be either biased high or biased low. Therefore, careful calibration and extensive validation of the Monte Carlo model are crucial for ensuring the accuracy of the estimator.</p>
 </div>
 </div>
 </div>
