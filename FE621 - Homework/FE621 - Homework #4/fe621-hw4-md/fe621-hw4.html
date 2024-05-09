@@ -7572,7 +7572,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</p>
+<p><em>b. The standard MC estimator for the price of an <strong>UOP (put) option</strong> is given by:</em></p>
 <p>$$
 \hat{P}_{n, m} = e^{-r T} \frac{1}{N} \cdot \sum_{k=1}^N (K - \hat{S}_m(k))^+ \mathbf{1}_{\{\hat{\tau}(k) &gt; T\}} \tag{3}
 $$</p>
@@ -7632,6 +7632,58 @@ $$</p>
 </li>
 </ol>
 <h5 id="Bias-Synthesis:">Bias Synthesis:<a class="anchor-link" href="#Bias-Synthesis:">¶</a></h5><p>The bias of $\hat{P}_{n,m}$ largely depends on the fidelity of the simulation in representing the true stock price dynamics and its interaction with the barrier $H$. Without precise tuning of simulation parameters and thorough model validation against real-world data, there is a risk that $\hat{P}_{n,m}$ might be either biased high or biased low. Therefore, careful calibration and extensive validation of the Monte Carlo model are crucial for ensuring the accuracy of the estimator.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>c. Use the following parameter table to compute the estimator $\hat{P}_{n, m}$ along with a $95\%$ confidence interval. Use $m = 63$ and $n = 100,000.^1$</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial price</td>
+<td>$S_0$</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Volatility</td>
+<td>$\sigma$</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Interest rate</td>
+<td>$r$</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Strike</td>
+<td>$K$</td>
+<td>60</td>
+</tr>
+<tr>
+<td>Expiration</td>
+<td>$T$</td>
+<td>0.25 years</td>
+</tr>
+<tr>
+<td>Barrier</td>
+<td>$H$</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
