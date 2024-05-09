@@ -7519,7 +7519,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.1-Barrior-Options-Theory">1.1 Barrior Options Theory<a class="anchor-link" href="#1.1-Barrior-Options-Theory">¶</a></h3><h4 id="1.1.1-Price-Formulation">1.1.1 Price Formulation<a class="anchor-link" href="#1.1.1-Price-Formulation">¶</a></h4><p>The price of an <strong>up-and-out put option</strong>/<strong>knock-out</strong> (<strong>UOP</strong>) with strike price $K$ and barrier $H$ is given by:</p>
+<h4 id="1.1-Barrier-Options-Theory">1.1 Barrier Options Theory<a class="anchor-link" href="#1.1-Barrier-Options-Theory">¶</a></h4><p>The following section delves into the underlying mathematics &amp; theoretical foundations for barrier options which are necessary to rigorously define &amp; evaluate before implementation.</p>
+<h5 id="1.1.1-Price-Formulation">1.1.1 Price Formulation<a class="anchor-link" href="#1.1.1-Price-Formulation">¶</a></h5><p>The price of an <strong>up-and-out put option</strong>/<strong>knock-out</strong> (<strong>UOP</strong>) with strike price $K$ and barrier $H$ is given by:</p>
 <p>$$
 P = e^{-r T} \mathbb{E}^Q[(K - S_T)_+ \mathbf{1}_{\{\tau &gt; T\}}] \tag{1}
 $$</p>
@@ -7527,7 +7528,7 @@ $$</p>
 <p>$$
 \tau = \inf{\{t &gt; 0 : S_t \geq H\}} \tag{2}
 $$</p>
-<h4 id="1.1.2-Indicator-Formulation">1.1.2 Indicator Formulation<a class="anchor-link" href="#1.1.2-Indicator-Formulation">¶</a></h4><p>The <strong>indicator function</strong> $\mathbf{1}_{\{\tau &gt; T\}}$ in the formula for the up-and-out put option is defined as follows:</p>
+<h5 id="1.1.2-Indicator-Formulation">1.1.2 Indicator Formulation<a class="anchor-link" href="#1.1.2-Indicator-Formulation">¶</a></h5><p>The <strong>indicator function</strong> $\mathbf{1}_{\{\tau &gt; T\}}$ in the formula for the up-and-out put option is defined as follows:</p>
 <p>$$
 \mathbf{1}_{\{\tau &gt; T\}} = 
 \begin{cases} 
