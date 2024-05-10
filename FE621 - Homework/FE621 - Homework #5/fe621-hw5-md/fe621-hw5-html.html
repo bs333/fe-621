@@ -7577,7 +7577,38 @@ $$</p>
 $$</p>
 <p>This demonstrates that the expectation grows exponentially at a rate determined by the drift $\mu$, independent of the volatility $\sigma$.</p>
 <h3 id="1.2-Portfolio-Wealth-Growth-Implementation">1.2 Portfolio Wealth Growth Implementation<a class="anchor-link" href="#1.2-Portfolio-Wealth-Growth-Implementation">¶</a></h3><p>The following section implements applications of factors governing the growth of portfolio wealth over time in Python.</p>
-<h4 id="1.2.1-True-vs.-Expected-Path-Simulation">1.2.1 True vs. Expected Path Simulation<a class="anchor-link" href="#1.2.1-True-vs.-Expected-Path-Simulation">¶</a></h4><p>The following markdown depicts Python code snippets which graphically displays $50$ simulated paths of $\{V_t\}_{t \in [0, T]}$ along with the expected (arithmetic average) path $\{\mathbb{E}[V_t]\}_{t \in [0, T]}$. Regarding the model parameters, we use $\mu = 0.08$, $\sigma = 0.2$, $r = 0.03$, and $T = 30$.</p>
+<h4 id="1.2.1-True-vs.-Expected-Path-Simulation">1.2.1 True vs. Expected Path Simulation<a class="anchor-link" href="#1.2.1-True-vs.-Expected-Path-Simulation">¶</a></h4><p>This Python code snippet simulates $50$ paths of a portfolio's wealth process $\{V_t\}_{t \in [0, T]}$ modeled as a geometric Brownian motion (GBM) alongside the expected (arithmetic average) path $\{\mathbb{E}[V_t]\}_{t \in [0, T]}$. We use the parameters $\mu = 0.08$, $\sigma = 0.2$, $T = 30$ years, and an initial portfolio value $V_0 = 100$.</p>
+<h5 id="Code-Breakdown">Code Breakdown<a class="anchor-link" href="#Code-Breakdown">¶</a></h5><ol>
+<li><strong>Import Libraries</strong>:<ul>
+<li><code>numpy</code> for numerical operations.</li>
+<li><code>matplotlib.pyplot</code> for plotting the results.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+<br/>
+<ol start="2">
+<li><strong>Set Parameters</strong>:<ul>
+<li><code>mu</code> : the expected return rate of the portfolio.</li>
+<li><code>sigma</code> : the volatility or standard deviation of returns.</li>
+<li><code>T</code> : the total time horizon for the simulation (30 years).</li>
+<li><code>dt</code> : the time increment for each step in the simulation.</li>
+<li><code>V0</code> : the initial portfolio value.</li>
+<li><code>N</code> : the number of time steps calculated as the total time divided by the increment.</li>
+<li><code>num_paths</code> : the number of simulation paths.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mf">0.08</span>       <span class="c1"># drift coefficient</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.2</span>     <span class="c1"># volatility coefficient</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">30</span>          <span class="c1"># time horizon</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>       <span class="c1"># time increment</span>
+<span class="n">V0</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># initial wealth</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>   <span class="c1"># number of time steps</span>
+<span class="n">num_paths</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># number of paths to simulate</span>
+</pre></div>
 </div>
 </div>
 </div>
