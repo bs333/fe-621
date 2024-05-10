@@ -7675,6 +7675,11 @@ $$</p>
 <span class="n">probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">terminal_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">expected_VT</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
 </pre></div>
 <br/>
+<p><strong>Step 5: Confidence Interval Computation</strong></p>
+<p>Calculate the $95\%$ confidence intervals for the probabilities of underperformance using the normal approximation.</p>
+<div class="highlight"><pre><span></span><span class="n">confidence_intervals</span> <span class="o">=</span> <span class="p">[</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">))</span><span class="o">/</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
+</pre></div>
+<br/>
 </div>
 </div>
 </div>
