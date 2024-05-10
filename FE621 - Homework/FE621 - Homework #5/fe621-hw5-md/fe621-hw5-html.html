@@ -7539,6 +7539,16 @@ $$</p>
 V_t = V_0 \exp{\left( (\mu - \frac{\sigma^2}{2})t + \sigma W_t \right)} \tag{3}
 $$</p>
 <h5 id="Mathematical-Synthesis">Mathematical Synthesis<a class="anchor-link" href="#Mathematical-Synthesis">¶</a></h5><p>Equation (3) clearly shows how the portfolio value $V_t$ evolves over time. It indicates that the portfolio value is log-normally distributed with its mean and variance increasing over time. This formulation is fundamental in finance for modeling asset prices and helps in understanding the dynamic nature of investment growth under uncertainty.</p>
+<h4 id="1.1.2-Expectation-of-Portfolio-Wealth">1.1.2 Expectation of Portfolio Wealth<a class="anchor-link" href="#1.1.2-Expectation-of-Portfolio-Wealth">¶</a></h4><p>The following section explores and delves into the expectation (first raw moment/arithmetic average) of the portfolio wealth process.</p>
+<h5 id="Expectation-Calculation">Expectation Calculation<a class="anchor-link" href="#Expectation-Calculation">¶</a></h5><p>Given the wealth process $V_t$ which follows a geometric Brownian motion (GBM) as described by:</p>
+<p>$$
+\frac{dV_t}{V_t} = \mu dt + \sigma dW_t \tag{1}
+$$</p>
+<p>The solution to this stochastic differential equation (SDE) indicates:</p>
+<p>$$
+V_t = V_0 \exp{\left( (\mu - \frac{\sigma^2}{2})t + \sigma W_t \right)} \tag{3}
+$$</p>
+<p>To find the expectation $\mathbb{E}[V_t]$, we note that $W_t$ is a standard Brownian motion (BM), which implies $\sigma W_t$ is normally distributed with mean $0$ and variance $\sigma^2 t$. Thus, $\sigma W_t \sim N(0, \sigma^2 t)$, and $e^{\sigma W_t}$ follows a log-normal distribution.</p>
 </div>
 </div>
 </div>
