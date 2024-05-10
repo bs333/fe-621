@@ -7890,11 +7890,11 @@ $$</p>
 <ul>
 <li><strong>Diagonal Elements</strong>:
 $$
-L_{ii} = \sqrt{A_{ii} - \sum_{k=1}^{i-1} L_{ik}^2}
+L_{ii} = \sqrt{A_{ii} - \sum_{k=1}^{i-1} L_{ik}^2} \tag{12}
 $$</li>
 <li><strong>Off-Diagonal Elements</strong>:
 $$
-L_{ij} = \frac{1}{L_{jj}} \left( A_{ij} - \sum_{k=1}^{j-1} L_{ik} L_{jk} \right)
+L_{ij} = \frac{1}{L_{jj}} \left( A_{ij} - \sum_{k=1}^{j-1} L_{ik} L_{jk} \right) \tag{13}
 $$</li>
 </ul>
 <h5 id="2.2.4.1-Cholesky-Decomposition-Applications">2.2.4.1 Cholesky Decomposition Applications<a class="anchor-link" href="#2.2.4.1-Cholesky-Decomposition-Applications">¶</a></h5><p><em>Solving Linear Equations</em></p>
@@ -7927,6 +7927,17 @@ $$</li>
 </pre></div>
 <br/>
 <p>This loop iterates over different basket sizes and correlation ranges, computes the option prices, and plots them.</p>
+<p><em>Plot Display &amp; Style</em></p>
+<div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Basket Call Option Price vs. Correlation Coefficient'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Correlation Coefficient (rho)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Option Price'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<br/>
+<p>The final block sets up the plot with appropriate labels, legend, and grid, and displays it.</p>
+<p>This comprehensive setup helps visualize how the correlation among the assets in the basket influences the price of the basket call option for different basket sizes.</p>
 </div>
 </div>
 </div>
