@@ -7680,6 +7680,13 @@ $$</p>
 <div class="highlight"><pre><span></span><span class="n">confidence_intervals</span> <span class="o">=</span> <span class="p">[</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">))</span><span class="o">/</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
 </pre></div>
 <br/>
+<p><strong>Step 6: Result Output</strong></p>
+<p>Finally, output the results in a structured format.</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Alpha</span><span class="se">\t</span><span class="s2">Probability</span><span class="se">\t</span><span class="s2">95% Confidence Interval"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">,</span> <span class="n">confidence_intervals</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">ci</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+<br/>
 </div>
 </div>
 </div>
