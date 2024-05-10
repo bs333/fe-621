@@ -7508,7 +7508,37 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Problem-1-(Portfolio-Wealth-Growth)">Problem 1 (Portfolio Wealth Growth)<a class="anchor-link" href="#Problem-1-(Portfolio-Wealth-Growth)">¶</a></h2><h3 id="1.1-Portfolio-Wealth-Growth-Theory">1.1 Portfolio Wealth Growth Theory<a class="anchor-link" href="#1.1-Portfolio-Wealth-Growth-Theory">¶</a></h3><p>The following section explores and delves into the theoretical mathematical foundation for the portfolio wealth growth process.</p>
+<h2 id="Problem-1-(Portfolio-Wealth-Growth)">Problem 1 (Portfolio Wealth Growth)<a class="anchor-link" href="#Problem-1-(Portfolio-Wealth-Growth)">¶</a></h2><h3 id="1.1-Portfolio-Wealth-Growth-Theory">1.1 Portfolio Wealth Growth Theory<a class="anchor-link" href="#1.1-Portfolio-Wealth-Growth-Theory">¶</a></h3><p>This section delves into the theoretical mathematical foundation governing the growth of portfolio wealth over time. The analysis is crucial for understanding how investments evolve under the influence of various market factors, including returns and volatility.</p>
+<h4 id="1.1.1-Mathematical-Formulation">1.1.1 Mathematical Formulation<a class="anchor-link" href="#1.1.1-Mathematical-Formulation">¶</a></h4><p>The wealth process $\{V_t\}_{t \geq 0}$ is modeled as a geometric Brownian motion (GBM), which is frequently used to represent stock prices and, by extension, portfolio values under stochastic environments. The stochastic differential equation (SDE) governing this process is given by:</p>
+<p>$$
+\frac{d V_t}{V_t} = \mu dt + \sigma dW_t \tag{1}
+$$</p>
+<p>Here:</p>
+<ul>
+<li>$V_t$ represents the portfolio value at time $t$.</li>
+<li>$\mu$ is the expected return of the portfolio, expressed as a percentage of the portfolio value.</li>
+<li>$\sigma$ is the volatility of the portfolio, which measures the standard deviation of the portfolio's returns.</li>
+<li>$dW_t$ is the increment of a standard Brownian motion, which captures the random fluctuations in the market.</li>
+</ul>
+<h5 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h5><p>Equation (1) can be interpreted as follows:</p>
+<ul>
+<li>The term $\mu dt$ captures the expected growth of the portfolio due to returns over an infinitesimally small time interval $dt$.</li>
+<li>The term $\sigma dW_t$ introduces randomness into the growth process, reflecting the uncertainty and risk inherent in the financial markets.</li>
+</ul>
+<h5 id="Solution-to-the-Differential-Equation">Solution to the Differential Equation<a class="anchor-link" href="#Solution-to-the-Differential-Equation">¶</a></h5><p>The solution to the stochastic differential equation (SDE) given in equation (1) can be expressed explicitly by integrating both sides over the interval from $0$ to $t$:</p>
+<p>$$
+\ln \frac{V_t}{V_0} = \left(\mu - \frac{\sigma^2}{2}\right)t + \sigma W_t \tag{2}
+$$</p>
+<p>where:</p>
+<ul>
+<li>$V_0$ is the initial value of the portfolio at time $t=0$.</li>
+<li>$W_t$ represents the standard Brownian motion at time $t$.</li>
+</ul>
+<p>From equation (2), we can exponentiate both sides to obtain the explicit form of $V_t$:</p>
+<p>$$
+V_t = V_0 \exp{\left( (\mu - \frac{\sigma^2}{2})t + \sigma W_t \right)} \tag{3}
+$$</p>
+<h5 id="Mathematical-Synthesis">Mathematical Synthesis<a class="anchor-link" href="#Mathematical-Synthesis">¶</a></h5><p>Equation (3) clearly shows how the portfolio value $V_t$ evolves over time. It indicates that the portfolio value is log-normally distributed with its mean and variance increasing over time. This formulation is fundamental in finance for modeling asset prices and helps in understanding the dynamic nature of investment growth under uncertainty.</p>
 </div>
 </div>
 </div>
