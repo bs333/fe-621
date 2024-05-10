@@ -7838,6 +7838,14 @@ $$</p>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="mi">252</span>       <span class="c1"># Daily steps</span>
 <span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>           <span class="c1"># Initial price of each asset</span>
 </pre></div>
+<br/>
+<p><em>Price Computation</em></p>
+<p>The function <code>compute_option_price</code> simulates the prices of a basket of assets and calculates the option price for a given $\rho$.</p>
+<p><em>Covariance Price Construction</em></p>
+<div class="highlight"><pre><span></span><span class="n">cov_matrix</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+<br/>
+<p>The line above creates a covariance matrix based on a specified $\rho$. The matrix has $\rho$ off-diagonal and $1$ on-diagonal, reflecting correlation among assets.</p>
 </div>
 </div>
 </div>
