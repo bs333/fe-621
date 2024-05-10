@@ -7884,6 +7884,20 @@ $$</p>
 x^\intercal A x &gt; 0 \tag{11}
 $$</p>
 <p>This condition must hold for every non-zero vector $x$ in either $\mathbb{R}^n$ or $\mathbb{C}^n$, confirming that the matrix does not allow any non-positive outcomes in its quadratic forms.</p>
+<h5 id="2.2.3-Cholesky-Decomposition-(Continued)">2.2.3 Cholesky Decomposition (Continued)<a class="anchor-link" href="#2.2.3-Cholesky-Decomposition-(Continued)">¶</a></h5><p><em>Decomposition Process</em></p>
+<p>The decomposition involves computing the elements of $L$ using:</p>
+<p>For $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, i$:</p>
+<ul>
+<li><strong>Diagonal Elements</strong>:
+$$
+L_{ii} = \sqrt{A_{ii} - \sum_{k=1}^{i-1} L_{ik}^2}
+$$</li>
+<li><strong>Off-Diagonal Elements</strong>:
+$$
+L_{ij} = \frac{1}{L_{jj}} \left( A_{ij} - \sum_{k=1}^{j-1} L_{ik} L_{jk} \right)
+$$</li>
+</ul>
+<h5 id="2.2.2-Basket-Call-with-Correlation-Monte-Carlo-Simulation-(Cont)">2.2.2 Basket Call with Correlation Monte Carlo Simulation (Cont)<a class="anchor-link" href="#2.2.2-Basket-Call-with-Correlation-Monte-Carlo-Simulation-(Cont)">¶</a></h5>
 </div>
 </div>
 </div>
