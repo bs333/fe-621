@@ -7786,6 +7786,7 @@ $$</p>
 <span class="c1"># Constructing the covariance matrix</span>
 <span class="n">cov_matrix</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
+<br/>
 <p><em>Asset Price Simulation</em></p>
 <p>Using the GBM formula to simulate the end prices for each asset.</p>
 <div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="mi">252</span>  <span class="c1"># Daily steps</span>
@@ -7800,6 +7801,7 @@ $$</p>
     <span class="n">daily_returns</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
     <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">daily_returns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
+<br/>
 <p><em>Option Payoff Calculation</em></p>
 <p>Calculate the basket value and option payoff.</p>
 <div class="highlight"><pre><span></span><span class="c1"># Calculate basket average prices at maturity</span>
@@ -7809,6 +7811,7 @@ $$</p>
 <span class="c1"># Discount payoffs to present value and average</span>
 <span class="n">option_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
 </pre></div>
+<br/>
 <p><em>Results</em></p>
 <p>Display the estimated option price from the simulation.</p>
 <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Estimated Basket Call Option Price: </span><span class="si">{</span><span class="n">option_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
