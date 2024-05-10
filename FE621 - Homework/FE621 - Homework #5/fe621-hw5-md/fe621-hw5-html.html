@@ -7687,6 +7687,69 @@ $$</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">ci</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <br/>
+<h4 id="1.2.3-Underperformance-Confidence-Interval-Simulation-Results">1.2.3 Underperformance Confidence Interval Simulation Results<a class="anchor-link" href="#1.2.3-Underperformance-Confidence-Interval-Simulation-Results">¶</a></h4><p>The table below presents the estimated probabilities of underperformance $\mathbb{P}[V_T \leq \alpha \mathbb{E}[V_T]]$ at various levels of $\alpha$ along with their $95\%$ confidence intervals, based on $n = 10,000$ simulations.</p>
+<table>
+<thead>
+<tr>
+<th>Alpha</th>
+<th>Probability</th>
+<th>95% Confidence Interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>0.7103</td>
+<td>(0.7014, 0.7192)</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>0.6763</td>
+<td>(0.6671, 0.6855)</td>
+</tr>
+<tr>
+<td>0.8</td>
+<td>0.6373</td>
+<td>(0.6279, 0.6467)</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>0.5888</td>
+<td>(0.5792, 0.5984)</td>
+</tr>
+<tr>
+<td>0.6</td>
+<td>0.5334</td>
+<td>(0.5236, 0.5432)</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>0.4651</td>
+<td>(0.4553, 0.4749)</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td>0.3871</td>
+<td>(0.3776, 0.3966)</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>0.2913</td>
+<td>(0.2824, 0.3002)</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>0.1797</td>
+<td>(0.1722, 0.1872)</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>0.0600</td>
+<td>(0.0553, 0.0647)</td>
+</tr>
+</tbody>
+</table>
+<p>This table helps visualize the varying degrees of underperformance risk associated with different thresholds of expected wealth, providing a statistical outlook on potential investment outcomes over time.</p>
 </div>
 </div>
 </div>
