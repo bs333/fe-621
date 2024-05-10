@@ -7512,8 +7512,9 @@ a.anchor-link {
 <h4 id="1.1.1-Mathematical-Formulation">1.1.1 Mathematical Formulation<a class="anchor-link" href="#1.1.1-Mathematical-Formulation">¶</a></h4><p>The wealth process $\{V_t\}_{t \geq 0}$ is modeled as a geometric Brownian motion (GBM), which is frequently used to represent stock prices and, by extension, portfolio values under stochastic environments. The stochastic differential equation (SDE) governing this process is given by:</p>
 <p>$$
 \frac{d V_t}{V_t} = \mu dt + \sigma dW_t \tag{1}
-$$</p>
-<p>Here:</p>
+$$
+Portfolio Wealth Growth Simulation vs. Expectation
+Here:</p>
 <ul>
 <li>$V_t$ represents the portfolio value at time $t$.</li>
 <li>$\mu$ is the expected return of the portfolio, expressed as a percentage of the portfolio value.</li>
@@ -7625,6 +7626,35 @@ $$</p>
     <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># insert the initial condition W_0 = 0</span>
     <span class="n">paths</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">W</span><span class="p">)</span>
 </pre></div>
+<br/>
+<ol start="4">
+<li><strong>Calculate Expected Path</strong>:<ul>
+<li>Compute the expected path using the deterministic part of the GBM formula.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">expected_path</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+<br/>
+<ol start="5">
+<li><strong>Plot the Results</strong>:<ul>
+<li>Plot all simulated paths and the expected path to visualize the potential variance around the expected growth.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># red lines for simulated paths</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">expected_path</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Expected Path $\mathbb</span><span class="si">{E}</span><span class="s1">[V_t]$'</span><span class="p">)</span>  <span class="c1"># blue line for the expected path</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Simulation of Portfolio Wealth Growth and Expected Path'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (years)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Portfolio Value'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<p><img alt="Portfolio Wealth Growth Simulation vs. Expectation" src="./fe621-hw5-figs/fe621-hw5-fig1-pwg-sim-exp.png"/></p>
+<figcaption><center><i>Figure 1 - Portfolio Wealth Growth Simulation vs. Expectation<i></i></i></center></figcaption>
 </div>
 </div>
 </div>
