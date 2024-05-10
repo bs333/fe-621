@@ -7846,6 +7846,12 @@ $$</p>
 </pre></div>
 <br/>
 <p>The line above creates a covariance matrix based on a specified $\rho$. The matrix has $\rho$ off-diagonal and $1$ on-diagonal, reflecting correlation among assets.</p>
+<p><em>Cholesky Decomposition</em></p>
+<div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">)</span>
+</pre></div>
+<p>We use <strong>Cholesky decomposition</strong> to transform the correlated standard normal random variables into a set that respects the specified correlation structure.</p>
+<h5 id="2.2.3-Cholesky-Decomposition">2.2.3 Cholesky Decomposition<a class="anchor-link" href="#2.2.3-Cholesky-Decomposition">¶</a></h5><p><em>"English" Definition</em></p>
+<p>Cholesky decomposition is a method in linear algebra for decomposing a Hermitian, positive-definite matrix into the product of a lower triangular matrix and its conjugate transpose. This is particularly useful in numerical calculations, such as solving linear equations and simulating correlated random variables.</p>
 </div>
 </div>
 </div>
