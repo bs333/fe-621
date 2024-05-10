@@ -7919,6 +7919,14 @@ $$</li>
 </pre></div>
 <br/>
 <p>After simulating the final asset prices, we calculate the basket's average price, determine the option's payoff, and discount it to the present value.</p>
+<p><em>Simulation &amp; Plot $\, \forall d \in \{5, 10\}$</em></p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">d_values</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">rho_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">compute_option_price</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">rho_range</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rho_range</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+</pre></div>
+<br/>
+<p>This loop iterates over different basket sizes and correlation ranges, computes the option prices, and plots them.</p>
 </div>
 </div>
 </div>
