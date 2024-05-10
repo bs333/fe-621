@@ -7856,7 +7856,7 @@ $$</p>
 <p><em>Mathematical Definition</em></p>
 <p>Given a Hermitian, positive-definite matrix $A$, the Cholesky decomposition expresses $A$ as:</p>
 <p>$$
-A = L L^\intercal
+A = L L^\intercal \tag{9}
 $$</p>
 <p>where:</p>
 <ul>
@@ -7870,8 +7870,20 @@ $$</p>
 </ol>
 <h5 id="2.2.3.1-Conjugate-Transpose-and-Positive-Definite-Matrix">2.2.3.1 Conjugate Transpose and Positive-Definite Matrix<a class="anchor-link" href="#2.2.3.1-Conjugate-Transpose-and-Positive-Definite-Matrix">¶</a></h5><p><em>Conjugate Transpose (Hermitian Transpose)</em></p>
 <p>The <strong>conjugate transpose</strong> of a matrix, also known as the Hermitian transpose, is defined for a matrix $A$ with complex entries. For a matrix $A$ of size $m \times n$ with elements $a_{ij}$:</p>
-<p>$A^H_{ji} = \overline{a_{ij}}$</p>
+<p>$$
+A^H_{ji} = \overline{a_{ij}} \tag{10}
+$$</p>
 <p>where $\overline{a_{ij}}$ is the complex conjugate of $a_{ij}$. This operation results in an $n \times m$ matrix where each element is the complex conjugate of its transpose element in matrix $A$.</p>
+<p><em>Positive-Definite Matrix</em></p>
+<p>A matrix $A$ is <strong>positive-definite</strong> if it meets the following criteria:</p>
+<ol>
+<li><strong>Symmetry</strong>: $A$ must be symmetric (i.e., $A = A^T$) for real matrices or Hermitian (i.e., $A = A^H$) for complex matrices.</li>
+<li><strong>Positive Quadratic Form</strong>: For all non-zero vectors $x$, the quadratic form must be positive:</li>
+</ol>
+<p>$$
+x^\intercal A x &gt; 0 \tag{11}
+$$</p>
+<p>This condition must hold for every non-zero vector $x$ in either $\mathbb{R}^n$ or $\mathbb{C}^n$, confirming that the matrix does not allow any non-positive outcomes in its quadratic forms.</p>
 </div>
 </div>
 </div>
