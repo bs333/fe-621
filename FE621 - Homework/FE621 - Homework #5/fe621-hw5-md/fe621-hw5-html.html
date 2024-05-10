@@ -7549,6 +7549,21 @@ $$</p>
 V_t = V_0 \exp{\left( (\mu - \frac{\sigma^2}{2})t + \sigma W_t \right)} \tag{3}
 $$</p>
 <p>To find the expectation $\mathbb{E}[V_t]$, we note that $W_t$ is a standard Brownian motion (BM), which implies $\sigma W_t$ is normally distributed with mean $0$ and variance $\sigma^2 t$. Thus, $\sigma W_t \sim N(0, \sigma^2 t)$, and $e^{\sigma W_t}$ follows a log-normal distribution.</p>
+<p>We can use the moment-generating function (MGF) of a normally distributed random variable to compute the expectation of a log-normal variable. For a random variable $X \sim \mathcal{N}(\mu_X, \sigma_X^2)$, the MGF of $X$ at $s$ is $M_X(s) = e^{\mu_X s + \frac{1}{2} \sigma_X^2 s^2}$. Setting $s = 1$, we find:</p>
+<p>$$
+\mathbb{E}[e^X] = e^{\mu_X + \frac{1}{2} \sigma_X^2} \tag{4}
+$$</p>
+<p>Applying this to our case, where $\mu_X = 0$ and $\sigma_X^2 = \sigma^2 t$, we get:</p>
+<p>$$
+\mathbb{E}[e^{\sigma W_t}] = e^{0 + \frac{1}{2} \sigma^2 t} = e^{\frac{1}{2} \sigma^2 t} \tag{5}
+$$</p>
+<p>Now, substituting this into the solution for $V_t$:</p>
+<p>$$
+\mathbb{E}[V_t] = \mathbb{E}\left[V_0 \exp\left((\mu - \frac{\sigma^2}{2}) t + \sigma W_t\right)\right]
+$$</p>
+<p>$$
+= V_0 \exp \left( (\mu - \frac{\sigma^2}{2}) t \right) \mathbb{E}[e^{\sigma W_t}] \tag{6}
+$$</p>
 </div>
 </div>
 </div>
