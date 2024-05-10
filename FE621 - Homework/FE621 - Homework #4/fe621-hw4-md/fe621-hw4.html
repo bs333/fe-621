@@ -7898,6 +7898,11 @@ L_{ij} = \frac{1}{L_{jj}} \left( A_{ij} - \sum_{k=1}^{j-1} L_{ik} L_{jk} \right)
 $$</li>
 </ul>
 <h5 id="2.2.4.1-Cholesky-Decomposition-Applications">2.2.4.1 Cholesky Decomposition Applications<a class="anchor-link" href="#2.2.4.1-Cholesky-Decomposition-Applications">¶</a></h5><p><em>Solving Linear Equations</em></p>
+<p>If you need to solve $Ax = b$, you can decompose $A$ into $LL^\intercal$, solve $Ly = b$ for $y$ using forward substitution, and then solve $L^\intercal x = y$ for $x$ using back substitution.</p>
+<p><em>Matrix Inversion</em></p>
+<p>Cholesky decomposition simplifies the inversion of matrices, particularly useful in statistical contexts like covariance matrix inversion.</p>
+<p><em>Simulation of Correlated Random Variables</em></p>
+<p>By decomposing the covariance matrix $\Sigma$ into $LL^\intercal$, it is possible to transform independent standard normal random variables into correlated variables by multiplying them with $L$. This application is crucial in financial modeling for simulating asset prices with specific correlation structures.</p>
 <h5 id="2.2.5-Basket-Call-with-Correlation-Monte-Carlo-Simulation-(Cont)">2.2.5 Basket Call with Correlation Monte Carlo Simulation (Cont)<a class="anchor-link" href="#2.2.5-Basket-Call-with-Correlation-Monte-Carlo-Simulation-(Cont)">¶</a></h5>
 </div>
 </div>
