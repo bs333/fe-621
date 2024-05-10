@@ -7913,6 +7913,12 @@ $$</li>
 </pre></div>
 <br/>
 <p>This loop simulates asset prices using the GBM formula, modified to incorporate daily returns influenced by the correlation structure.</p>
+<p><em>Option Payoff Calculation</em></p>
+<div class="highlight"><pre><span></span><span class="n">payoffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">final_prices</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">option_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
+</pre></div>
+<br/>
+<p>After simulating the final asset prices, we calculate the basket's average price, determine the option's payoff, and discount it to the present value.</p>
 </div>
 </div>
 </div>
