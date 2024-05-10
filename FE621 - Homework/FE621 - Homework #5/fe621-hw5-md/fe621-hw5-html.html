@@ -7668,6 +7668,13 @@ $$</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># for reproducibility</span>
 <span class="n">terminal_values</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
+<br/>
+<p><strong>Step 4: Underperformance Probability Computation</strong></p>
+<p>For each $\alpha_i$, calculate the probability that $V_T$ is less than or equal to $\alpha \times \mathbb{E}[V_T]$. The expectation $\mathbb{E}[V_T]$ is computed based on its analytical expression.</p>
+<div class="highlight"><pre><span></span><span class="n">expected_VT</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span>  <span class="c1"># calculate expected V_T</span>
+<span class="n">probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">terminal_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">expected_VT</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
+</pre></div>
+<br/>
 </div>
 </div>
 </div>
