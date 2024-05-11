@@ -7878,6 +7878,22 @@ $$</p>
 </table>
 <figcaption style="text-align: center;"><i>Table 2 - Comparison of Empirical and Theoretical Probabilities of Terminal Wealth Underperformance</i></figcaption>
 <h5 id="Discussion">Discussion<a class="anchor-link" href="#Discussion">¶</a></h5><p>From the table above, we can observe how closely the empirical probabilities and their confidence intervals align with the theoretical probabilities. This comparison helps validate our simulation methodology and provides insight into the accuracy and reliability of our model in capturing the dynamics of terminal wealth underperformance.</p>
+<h4 id="1.3.3-Probability-of-Underperformance-Convergence">1.3.3 Probability of Underperformance Convergence<a class="anchor-link" href="#1.3.3-Probability-of-Underperformance-Convergence">¶</a></h4><p>This section explores the theoretical convergence of the probability $\mathbb{P}(V_T \leq \alpha \mathbb{E}[V_T])$ as the time horizon $T$ approaches infinity. Understanding this convergence provides insights into the long-term risk profile of the investment strategy.</p>
+<h5 id="Theoretical-Background">Theoretical Background<a class="anchor-link" href="#Theoretical-Background">¶</a></h5><p>Given the stochastic model for terminal wealth:</p>
+<p>$$
+V_T = V_0 \exp \left((\mu - \frac{1}{2} \sigma^2) T + \sigma W_T\right) \tag{8}
+$$</p>
+<p>where $W_T$ is a standard Brownian motion, the variable $V_T$ is log-normally distributed. The expected value of $V_T$ is $V_0 \exp(\mu T)$.</p>
+<h5 id="Convergence-Analysis">Convergence Analysis<a class="anchor-link" href="#Convergence-Analysis">¶</a></h5><p>As $T$ increases, the term $\sigma W_T$—which has a mean of 0 and a standard deviation of $\sigma \sqrt{T}$—becomes dominant in influencing the distribution of $\ln V_T$. This leads us to consider the behavior of the ratio $\frac{V_T}{\mathbb{E}[V_T]}$:</p>
+<p>$$
+\frac{V_T}{\mathbb{E}[V_T]} = \exp \left( -\frac{1}{2} \sigma^2 T + \sigma W_T \right) \tag{17}
+$$</p>
+<p>As $T \to \infty$, the distribution of $\ln \left(\frac{V_T}{\mathbb{E}[V_T]}\right) = -\frac{1}{2} \sigma^2 T + \sigma W_T$ shifts towards $-\infty$, because the deterministic component $-\frac{1}{2} \sigma^2 T$ dominates. Thus, regardless of the value of $\alpha$ (as long as $\alpha &gt; 0$):</p>
+<p>$$
+\lim_{T \to \infty} \mathbb{P}\left(\frac{V_T}{\mathbb{E}[V_T]} \leq \alpha \right) = \lim_{T \to \infty} \mathbb{P}\left(-\frac{1}{2} \sigma^2 T + \sigma W_T \leq \ln(\alpha) \right) = 1
+$$</p>
+<p>This implies that the probability that $V_T$ underperforms $\alpha \times \mathbb{E}[V_T]$ approaches 1 as $T$ becomes very large.</p>
+<h5 id="Implications">Implications<a class="anchor-link" href="#Implications">¶</a></h5><p>This result has significant implications for long-term investment strategies. It suggests that, under the assumed model, the relative underperformance compared to the growing expectation becomes almost certain in the long run. This highlights the importance of considering the effects of volatility and the time horizon in financial planning and risk assessment.</p>
 </div>
 </div>
 </div>
