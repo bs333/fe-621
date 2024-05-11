@@ -7777,6 +7777,27 @@ $$</p>
 <p>$$
 \mathbb{E}[V_T] = V_0 \exp(\mu T) \tag{11}
 $$</p>
+<p>Thus, the inequality $V_T \leq \alpha \mathbb{E}[V_T]$ becomes:</p>
+<p>$$
+V_T \leq \alpha V_0 \exp (\mu T) \tag{12}
+$$</p>
+<p>Taking logarithms:</p>
+<p>$$
+\ln V_T \leq \ln(\alpha V_0 \exp (\mu T)) = \ln(\alpha) + \ln V_0 + \mu T \tag{13}
+$$</p>
+<p>Now, substituting $Z$:</p>
+<p>$$
+\ln V_0 + (\mu - \frac{1}{2} \sigma^2) T + \sigma \sqrt{T} Z \leq \ln(\alpha) + \ln V_0 + \mu T \tag{14}
+$$</p>
+<p>Simplifying and solving for $Z$:</p>
+<p>$$
+Z \leq \frac{\ln(\alpha) + \frac{1}{2} \sigma^2 T}{\sigma \sqrt{T}} \tag{15}
+$$</p>
+<p>This transformation yields a probability:</p>
+<p>$$
+\mathbb{P}(V_T \leq \alpha \mathbb{E}[V_T]) = \Phi\left(\frac{\ln(\alpha) + \frac{1}{2} \sigma^2 T}{\sigma \sqrt{T}}\right) \tag{16}
+$$</p>
+<p>where $\Phi$ is the cumulative distribution function (CDF) of the standard normal distribution. In the next section, we will compare these theoretical probabilities with those estimated in Table 1, and discuss the extent to which our calculated confidence intervals capture these exact, theoretical probabilities.</p>
 </div>
 </div>
 </div>
