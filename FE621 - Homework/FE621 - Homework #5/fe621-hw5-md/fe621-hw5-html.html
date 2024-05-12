@@ -7924,21 +7924,23 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Problem-2-(Estimating-Expected-Return-$%5Cmu$-and-Volatility-$%5Csigma$)">Problem 2 (Estimating Expected Return $\mu$ and Volatility $\sigma$)<a class="anchor-link" href="#Problem-2-(Estimating-Expected-Return-$%5Cmu$-and-Volatility-$%5Csigma$)">¶</a></h2><h3 id="2.1-Estimator-Theory">2.1 Estimator Theory<a class="anchor-link" href="#2.1-Estimator-Theory">¶</a></h3><p>The following section establishes the mathematical foundation regarding estimators for the expected return $\hat{\mu}$ and $\hat{\sigma}$.</p>
-<h4 id="2.1.1-Mathematical-Foundation">2.1.1 Mathematical Foundation<a class="anchor-link" href="#2.1.1-Mathematical-Foundation">¶</a></h4><p>Using step size $\Delta &gt; 0$, we begin by partitioning the time interval $[0, T]$ into $m = \frac{T}{\Delta}$ sub-intervals of equal length. We assume that the returns of an equity/stock in these intervals are uncorrelated with the following distribution:</p>
+<h2 id="Problem-2-(Estimating-Expected-Return-$%5Cmu$-and-Volatility-$%5Csigma$)">Problem 2 (Estimating Expected Return $\mu$ and Volatility $\sigma$)<a class="anchor-link" href="#Problem-2-(Estimating-Expected-Return-$%5Cmu$-and-Volatility-$%5Csigma$)">¶</a></h2><h3 id="2.1-Estimator-Theory">2.1 Estimator Theory<a class="anchor-link" href="#2.1-Estimator-Theory">¶</a></h3><p>This section establishes the mathematical foundation for estimators concerning the expected return $\hat{\mu}$ and volatility $\hat{\sigma}$ of a financial instrument, such as a stock or equity.</p>
+<h4 id="2.1.1-Mathematical-Foundation">2.1.1 Mathematical Foundation<a class="anchor-link" href="#2.1.1-Mathematical-Foundation">¶</a></h4><h5 id="Time-Partitioning-and-Return-Assumptions">Time Partitioning and Return Assumptions<a class="anchor-link" href="#Time-Partitioning-and-Return-Assumptions">¶</a></h5><p>We begin by partitioning the total observation period $[0, T]$ into $m$ equal sub-intervals, each of length $\Delta$, where $m = \frac{T}{\Delta}$. This division allows us to observe and analyze the stock returns at regular intervals, reducing the complexity of continuous monitoring to discrete evaluations.</p>
+<p>For each sub-interval, we model the stock's return $r_i^{(\Delta)}$ as:</p>
 <p>$$
 r_i^{(\Delta)} \sim \mathcal{N}(\mu \Delta, \sigma^2 \Delta), \; \; \; 1 \leq i \leq m, \tag{19}
 $$</p>
-<p>where $\mu$ and $\sigma$ are the annual drift and volatility parameters. Please note that the mean return scales with the interval length $\Delta$ whereas the return volatility scales with the $\sqrt{\Delta}$.</p>
-<p>Based on a return sample $r_1^{(\Delta)}, \dots, r_m^{(\Delta)}$, the historical estimators for $\mu$ and $\sigma$ are given by:</p>
+<p>Here, $\mu$ represents the expected annual return (drift) of the stock, and $\sigma$ denotes the annual volatility. Notably, the mean return is proportional to the interval length $\Delta$, while the volatility of the return is scaled by $\sqrt{\Delta}$, reflecting the properties of Brownian motion in finance.</p>
+<h5 id="Estimator-Derivation">Estimator Derivation<a class="anchor-link" href="#Estimator-Derivation">¶</a></h5><p>Using the return samples $r_1^{(\Delta)}, \dots, r_m^{(\Delta)}$ collected over the $m$ intervals, we compute the historical estimators for $\mu$ and $\sigma$. The key to these estimations lies in adjusting for the interval length to ensure the annualization of the parameters:</p>
 <p>$$
 \hat{\mu} = \frac{\hat{\mu}^{(\Delta)}}{\Delta}, \; \; \; \hat{\sigma} = \frac{\hat{\sigma}^{(\Delta)}}{\sqrt{\Delta}} \tag{20}
 $$</p>
-<p>where the estimators for the drift and volatility of returns with step size $\Delta$ are as follows:</p>
+<p>The estimators for the drift and volatility with respect to the chosen step size $\Delta$ are computed as follows:</p>
 <p>$$
 \hat{\mu}^{(\Delta)} = \frac{1}{m} \sum_{i=1}^m r_i^{(\Delta)}, \; \; \; \hat{\sigma}^{(\Delta)} = \sqrt{\frac{1}{m - 1} \sum_{i = 1}^m (r_i^{(\Delta)} - \hat{\mu}^{(\Delta)})^2}. \tag{21}
 $$</p>
-<p>Please note that the scaling in Equation 20 annualizes these estimators.</p>
+<h4 id="Discussion">Discussion<a class="anchor-link" href="#Discussion">¶</a></h4><p>The rationale behind scaling $\hat{\mu}^{(\Delta)}$ by $\frac{1}{\Delta}$ and $\hat{\sigma}^{(\Delta)}$ by $\frac{1}{\sqrt{\Delta}}$ in Equation 20 is to normalize these estimates to an annual scale. This is crucial for comparing results across different time intervals or different securities with varying sampling frequencies.</p>
+<h5 id="Implications">Implications<a class="anchor-link" href="#Implications">¶</a></h5><p>The accurate computation of $\hat{\mu}$ and $\hat{\sigma}$ is fundamental for financial analysis and decision-making. These parameters are integral to the assessment of investment performance, risk management, and the strategic allocation of assets within portfolios. Understanding the mathematical underpinnings and appropriate methodologies for estimating these parameters ensures that financial analyses conducted on this basis are robust and reflective of true market dynamics.</p>
 </div>
 </div>
 </div>
